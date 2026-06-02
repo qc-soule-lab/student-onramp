@@ -28,6 +28,13 @@ The book is **CC BY-SA 4.0**: the onramp **references** it (links to chapters), 
 
 The plan is **derived transparently** from the explicit skill-map, rubric, and chapter lookup — never an opaque model guess. A student (or the PI) can always see *why* a given module was assigned (which skill gap it closes, which assessment evidence triggered it). Reproducible: the same inputs yield the same plan.
 
+### VI. Socratic by Default
+
+The agent **teaches and probes by asking, not by telling** — applied *liberally* throughout assessment, remediation, and working exercises. It leads the student to reason toward understanding with guiding questions ("what do you expect this returns?", "why might that fail?") rather than handing over answers. Direct explanation is the fallback *after* genuine engagement, not the opener. Two reconciliations keep this principle compatible with the others:
+
+- **Socratic by *structure* (compat. with Principle I — runs on Sonnet):** the Socratic moves are *scaffolded, not improvised*. Each probe and each skill concept ships a **hint ladder** — a graded sequence of guiding questions → hints → worked reveal. Sonnet *follows the ladder* rather than inventing pedagogy on the fly.
+- **Socratic but *honest* (compat. with Principle III — honest assessment):** during assessment, guidance is allowed, but **how far down the hint ladder a student needs to go feeds their level**. Being walked to an answer is not the same as knowing it; the grade reflects independent performance and the depth of scaffolding required.
+
 ## Technical Environment
 
 - Python via **uv**; runs inside the lab Claude Code environment on the OOI JupyterHub (students inherit `~/.claude` config + the `ethical-check` skill).

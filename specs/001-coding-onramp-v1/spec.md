@@ -33,20 +33,21 @@ New lab students arrive with widely varying data-science/coding backgrounds. We 
 ## Approach / Behavior
 
 1. **Triage (conversational)**: Claude asks a short, friendly set of questions to set a rough level per skill area (what have you built? used numpy/pandas/git?).
-2. **Hands-on probes**: for each skill area, Claude presents 1–2 short tasks from the probe bank (write/fix/predict code); the student attempts them; Claude **grades against the probe's answer key**, not open-ended judgment.
+2. **Hands-on probes (Socratic)**: for each skill area, Claude presents 1–2 short tasks from the probe bank (write/fix/predict code). The student attempts them; when they stall, Claude offers **Socratic guidance via the probe's hint ladder** (guiding question → hint → bigger hint → reveal) rather than the answer. Claude **grades against the probe's answer key**, and **records how far down the hint ladder the student needed to go** — that scaffolding depth feeds the level (Constitution III + VI).
 3. **Score & level**: Claude applies the **rubric thresholds** (`assessment_rubric.md`) to assign a level per skill area — consistently, by rule.
 4. **Gap diff**: compare assessed level vs. the skill-map target → ordered list of gaps.
 5. **Plan generation**: fill `learning_plan.template.md` — for each gap, look up the mapped book chapters + assignments via the **skill→chapter lookup** and emit an ordered, paced plan (e.g. "Week 1: Python fundamentals → ch. …, do assignment …").
-6. **Progress tracking**: write `progress.md`; on later sessions ("continue"), Claude reads progress, optionally re-probes, and advances or remediates.
+6. **Progress tracking + Socratic teaching**: write `progress.md`; on later sessions ("continue"), Claude reads progress, optionally re-probes, and advances or remediates. Throughout teaching/remediation Claude is **Socratic by default** (Constitution VI) — it works the student through concepts and stuck points by *asking*, drawing on per-concept **guiding-question banks**, and explains directly only after genuine engagement.
 
-**Why this design**: per Constitution Principle I, every step is a *lookup / grade-against-key / fill-template* operation, so it runs reliably on **Sonnet**. Claude is not asked to invent a curriculum or judge ability open-endedly.
+**Why this design**: per Constitution Principle I, every step is a *lookup / grade-against-key / follow-the-hint-ladder / fill-template* operation, so it runs reliably on **Sonnet**. Claude is not asked to invent a curriculum, judge ability open-endedly, or improvise Socratic pedagogy — the questions, hints, and reveals are pre-authored ladders it follows.
 
 ## Required Artifacts (what implementation must produce)
 
 - `CLAUDE.md` — the agent's **step-by-step runtime procedure** (deterministic, numbered) for the flow above.
 - `skill_maps/coding_readiness.yml` — skill areas, targets, chapter tags.
 - `assessment_rubric.md` — explicit scoring thresholds + leveling rules.
-- `probes/` — probe bank, each probe with prompt + **answer key / grading criteria**.
+- `probes/` — probe bank, each probe with prompt + **answer key / grading criteria** + a **hint ladder** (guiding question → hint → bigger hint → worked reveal) for Socratic scaffolding, with scaffolding-depth → level mapping.
+- **Per-concept guiding-question banks** — pre-authored Socratic questions/hints for teaching & remediation (so the agent leads by asking, on Sonnet, without improvising).
 - `skill_to_chapter.yml` (or equivalent lookup) — skill → book chapter URL/path + assignment.
 - `learning_plan.template.md` — fill-in-the-blanks plan template.
 
@@ -63,10 +64,11 @@ New lab students arrive with widely varying data-science/coding backgrounds. We 
 - **Determinism**: same assessment inputs → same gap diff → same plan ordering.
 - **Plan sanity**: every assigned module maps to a real book chapter that exists in the mirror; no gap left unaddressed; ordering respects prerequisites.
 - **Tone**: assessment dialogue reads as welcoming and honest (spot-check), never flattering or harsh.
+- **Socratic behavior**: the agent **asks before telling** — it offers hint-ladder guiding questions before answers, and records scaffolding depth into the level. Spot-check that it follows the ladder rather than dumping the solution.
 
 ## Completion Criteria
 
-- [ ] Skill-map, rubric, probe bank (with keys), chapter lookup, and plan template authored
+- [ ] Skill-map, rubric, probe bank (with keys **+ hint ladders**), per-concept guiding-question banks, chapter lookup, and plan template authored
 - [ ] `CLAUDE.md` runtime procedure drives the full assess→diff→plan→track loop
 - [ ] A test run **on Sonnet** produces a correct, sensible personalized plan for ≥2 fixture student profiles (e.g. "near-beginner", "intermediate")
 - [ ] Generated artifacts are gitignored (privacy verified)
