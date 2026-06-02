@@ -1,81 +1,47 @@
-# [PROJECT_NAME] Research Constitution
+# student-onramp Constitution
 
-## Research Context
+*AI-generated draft (Claude, Anthropic) — for review. Principles below govern this project; edit freely.*
 
-[RESEARCH_CONTEXT]
-<!-- What scientific questions does this project address? How does it fit
-     into the broader research program? Who are the intended users of
-     the outputs? -->
+## Project Context
+
+`student-onramp` is an **agentic, Claude-driven onboarding curriculum** for new qc-soule-lab students. A student clones the repo, launches Claude, and Claude assesses their data-science / coding readiness, then builds a personalized, paced learning plan that routes them through the lab's mirror of the *Earth & Environmental Data Science* book (Abernathey et al., CC BY-SA 4.0). Intended users: new lab students (e.g. Alexa), with the PI/collaborators as authors and reviewers. v1 is coding-first; math and physics pillars are Phase 2.
 
 ## Core Principles
 
-### I. Reproducibility
+### I. Build on Opus, Run on Sonnet (non-negotiable)
 
-Analysis should be fully reproducible from raw data to final outputs.
-Scripts run without manual intervention. Random seeds are fixed and
-documented. Environment dependencies are explicit (requirements.txt,
-environment.yml, or equivalent).
+Students run this on **Sonnet** (Standard seats); it is authored on Opus. Therefore the intelligence must live in **explicit structure, not runtime model cleverness**: a skill-map, a scoring rubric with thresholds, a probe bank with answer keys, a skill→chapter lookup, and fill-in templates. The runtime job must reduce to "follow a defined procedure, grade against keys, look up mappings, fill templates." **Acceptance is measured run on Sonnet, not Opus.** Any feature that only works because Opus is clever is a defect.
 
-### II. Data Integrity
+### II. Student Privacy
 
-Raw data is immutable - all transformations produce new files, never
-overwrite sources. Data lineage is traceable through the analysis chain.
-Missing or suspect values are flagged, not silently dropped or filled.
+A student's assessment results, skill gaps, and personalized plan are **sensitive and stay local to their own clone** — generated artifacts (`learning_plan.md`, `progress.md`, profiles) are gitignored and never committed to the shared repo. No student's results are shared without their consent.
 
-### III. Provenance
+### III. Honest, Welcoming Assessment
 
-Every output links back to: the code that produced it, the input data,
-and key parameter choices. Figures and tables can be regenerated from
-tracked artifacts. If you can't trace how a number was made, it doesn't
-belong in the paper.
+The assessment is **supportive and non-judgmental** — it meets a nervous newcomer where they are. It is also **honest**: no flattery, no inflated scoring, no fabricated evaluation. A student is placed by evidence (their probe answers against the key), not by what feels encouraging. Misplacing someone "to be nice" fails them later.
 
-## Data Sources
+### IV. Attribution & Licensing
 
-[DATA_SOURCES]
-<!-- For each major data source:
-     - Name and brief description
-     - Access method (URL, API, local path)
-     - Spatial/temporal coverage
-     - Update frequency (if applicable)
-     - Known quality issues or limitations
-     - Contact or documentation link -->
+The book is **CC BY-SA 4.0**: the onramp **references** it (links to chapters), never duplicates or re-hosts it, preserving attribution. Any *published* adaptation of book content stays CC BY-SA 4.0. AI-generated prose intended for human reading (plans, explanatory text) carries the lab AI-disclosure label. Cite every external resource the curriculum points to.
+
+### V. Inspectable Curriculum
+
+The plan is **derived transparently** from the explicit skill-map, rubric, and chapter lookup — never an opaque model guess. A student (or the PI) can always see *why* a given module was assigned (which skill gap it closes, which assessment evidence triggered it). Reproducible: the same inputs yield the same plan.
 
 ## Technical Environment
 
-[TECHNICAL_ENVIRONMENT]
-<!-- - Language and version (e.g., Python 3.11)
-     - Key packages and versions
-     - Compute environment (laptop, cluster, cloud)
-     - Data storage locations
-     - Version control practices -->
+- Python via **uv**; runs inside the lab Claude Code environment on the OOI JupyterHub (students inherit `~/.claude` config + the `ethical-check` skill).
+- Content backbone: the org mirror `qc-soule-lab/earth-env-data-science-book` (referenced by URL/path, not vendored).
+- Built SpecKit-native (`.specify/` + `/speckit.*`); changes via branch + PR.
 
-## Coordinate Systems & Units
+## Content Sources
 
-[COORDINATE_SYSTEMS]
-<!-- - Spatial reference system(s) with EPSG codes
-     - Time zone and calendar conventions
-     - Standard units for key variables
-     - Missing data conventions (NaN, -9999, etc.) -->
-
-## Figure Standards
-
-[FIGURE_STANDARDS]
-<!-- - Color palette (prefer colorblind-safe)
-     - Standard dimensions for publication
-     - Required elements (scale bars, colorbars, uncertainty)
-     - File formats and resolution (e.g., PDF for vectors, 300dpi PNG) -->
-
-## Quality Checks
-
-[QUALITY_CHECKS]
-<!-- - Range and sanity checks for key variables
-     - Spatial/temporal consistency checks
-     - Comparison against reference or validation data
-     - How suspect data is flagged and handled -->
+- **Earth & Environmental Data Science book** — `qc-soule-lab/earth-env-data-science-book` (CC BY-SA 4.0). Carries the coding/data-science curriculum; its `assignments/` provide ready-made hands-on probes and exercises.
 
 ## Project Notes
 
-[PROJECT_NOTES]
-<!-- - Collaborator agreements or data sharing restrictions
-     - Publication timelines or embargo periods
-     - Any other project-specific constraints -->
+- **v1 = coding-first**; math + physics pillars and per-project skill-maps = Phase 2; optional PI progress dashboard = Phase 3.
+- Governance follows the lab norms (branch + PR, pytest before commit, `ethical-check` before introducing resources or shipping prose).
+
+---
+**Version**: 0.1.0 (draft) · **Ratified**: 2026-06-02 (pending PI review)
