@@ -4,7 +4,11 @@
 
 ## Project Context
 
-`student-onramp` is an **agentic, Claude-driven onboarding curriculum** for new qc-soule-lab students. A student clones the repo, launches Claude, and Claude assesses their data-science / coding readiness, then builds a personalized, paced learning plan that routes them through the lab's mirror of the *Earth & Environmental Data Science* book (Abernathey et al., CC BY-SA 4.0). Intended users: new lab students (e.g. Alexa), with the PI/collaborators as authors and reviewers. v1 is coding-first; math and physics pillars are Phase 2.
+`student-onramp` is an **agentic, Claude-driven onboarding curriculum** for new qc-soule-lab students. A student clones the repo, launches Claude, Claude assesses where they are, and guides them along a **domain spine with coding woven through** — toward being ready to contribute to a lab project. Intended users: new lab students (e.g. Alexa); PI/collaborators author and review.
+
+**Curriculum taxonomy (PI-defined):** a domain spine — **0a** initial earth-science background (topography, lat/long, seafloor spreading, sound & light) → **0b** OOI & Axial Seamount familiarity (collecting ocean data, plate tectonics/seafloor, seafloor change in a volcanic setting) → **0c** hydrothermal systems & fauna (life on a vent, tidal diffuse-flow) → **project** — with the **"working with data" coding skills (Linux, Python, oceanographic data) woven in just-in-time** along the way (Principle VII), drawing on the *Earth & Environmental Data Science* book (Abernathey et al., CC BY-SA 4.0) as the coding reference.
+
+**v1 = one integrated vertical slice** through this spine (a thin but complete path that touches the domain tiers with coding woven in, end-to-end), proving the model before breadth is added. Full tier breadth, per-project skill-maps, and math/physics depth are later phases.
 
 ## Core Principles
 
@@ -34,6 +38,10 @@ The agent **teaches and probes by asking, not by telling** — applied *liberall
 
 - **Socratic by *structure* (compat. with Principle I — runs on Sonnet):** the Socratic moves are *scaffolded, not improvised*. Each probe and each skill concept ships a **hint ladder** — a graded sequence of guiding questions → hints → worked reveal. Sonnet *follows the ladder* rather than inventing pedagogy on the fly.
 - **Socratic but *honest* (compat. with Principle III — honest assessment):** during assessment, guidance is allowed, but **how far down the hint ladder a student needs to go feeds their level**. Being walked to an answer is not the same as knowing it; the grade reflects independent performance and the depth of scaffolding required.
+
+### VII. Computing is Woven, Not Terminal
+
+Coding is **never taught in isolation or saved for the end.** It is introduced **just-in-time, in service of the science** — the student learns a tool at the moment a domain question demands it (matplotlib to *see* the bathymetry, xarray to *pull* the OOI data, pandas to *expose* the tidal signal in diffuse vent flow). The book is a **reference drawn on chapter-by-chapter as topics demand**, not a course completed front-to-back. Every coding skill enters attached to a concrete domain motivation. The curriculum is a **domain spine (earth science → OOI/Axial → vents & fauna → project) with coding woven through**, not a sequence of pillars that ends in coding.
 
 ## Technical Environment
 
