@@ -1,0 +1,14 @@
+# Privacy: a student's assessment results + generated plan stay LOCAL to their own clone.
+# Skill gaps are sensitive — never commit them to the shared repo.
+/learning_plan.md
+/progress.md
+/students/
+*.profile.md
+.assessment_state.json
+
+# Python / environment
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.DS_Store
