@@ -18,7 +18,7 @@ Students run this on **Sonnet** (Standard seats); it is authored on Opus. Theref
 
 ### II. Student Privacy
 
-A student's assessment results, skill gaps, and personalized plan are **sensitive and stay local to their own clone** — generated artifacts (`learning_plan.md`, `progress.md`, profiles) are gitignored and never committed to the shared repo. No student's results are shared without their consent.
+A student's assessment results, skill gaps, and personalized plan are **sensitive and stay local to their own clone** — generated artifacts (`journey_plan.md`, `progress.md`, profiles) are gitignored and never committed to the shared repo. No student's results are shared without their consent.
 
 ### III. Honest, Welcoming Assessment
 
@@ -55,7 +55,7 @@ Coding is **never taught in isolation or saved for the end.** It is introduced *
 
 ## Project Notes
 
-- **v1 = coding-first**; math + physics pillars and per-project skill-maps = Phase 2; optional PI progress dashboard = Phase 3.
+- **v1 = one integrated vertical slice** (domain spine, coding woven — Principle VII); full tier breadth, math + physics pillars, and per-project skill-maps = Phase 2; optional PI progress dashboard = Phase 3.
 - Governance follows the lab norms (branch + PR, pytest before commit, `ethical-check` before introducing resources or shipping prose).
 
 ---
