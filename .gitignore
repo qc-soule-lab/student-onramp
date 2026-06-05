@@ -1,5 +1,6 @@
 # Privacy: a student's assessment results + generated plan stay LOCAL to their own clone.
 # Skill gaps are sensitive — never commit them to the shared repo.
+/journey_plan.md
 /learning_plan.md
 /progress.md
 /students/
