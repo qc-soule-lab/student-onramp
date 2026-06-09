@@ -34,12 +34,18 @@ coding:
   - id: unix_basics
     step: 0
     chapter: unix_basics
-    summary: "Navigates the filesystem (cd, ls, pwd); finds and inspects files from the shell."
-    probes: [p00_unix_navigate]
+    # GATING objectives: orient (pwd, ls -lh) · navigate (cd, ~, .., tab-complete) ·
+    #   peek at a file without an editor (head/cat) · read & recover from a shell error.
+    # USEFUL (taught, not gating): organize (mkdir/cp/mv) · rm + "no trash bin" · globbing (*).
+    summary: "Survival shell: orient (pwd/ls), navigate (cd/~/..), peek at a file (head/cat), and read+recover from errors like 'No such file or directory' — enough to reach and inspect data."
+    probes: [p00_unix_navigate, p00c_shell_peek, p00d_read_error]
   - id: vi_basics
     step: 0
     reading: vi_ref           # external (no book chapter) — Wikibooks vi reference; resolves in journey/readings.md
-    summary: "Opens a file in vi; normal vs. insert mode; saves/exits (:wq) and discards (:q!)."
+    # GATING objectives: modal model (normal vs insert) · open (vi <file>) · insert (i) ·
+    #   back to normal (Esc) · leave deliberately (:wq / :q / :q!) · the bail reflex (Esc then :q!).
+    # USEFUL (taught, not gating): movement (hjkl/arrows) · delete (x/dd) · yank+put (yy/p) · search (/).
+    summary: "Survival vi: the modal model (normal vs insert), open a file, insert (i), Esc, and leave deliberately (:wq/:q/:q!) — never get trapped."
     probes: [p00b_vi_edit]
   - id: jupyter_basics
     step: 1

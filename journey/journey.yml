@@ -34,7 +34,7 @@ slice:
       chapters: [unix_basics]    # unix from the book; vi has no book chapter — sourced as a reading
       readings: [vi_ref]         # Wikibooks "Learning the vi Editor" (CC BY-SA 4.0) — see readings.md
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
-      probes: [p00_unix_navigate, p00b_vi_edit]
+      probes: [p00_unix_navigate, p00c_shell_peek, p00d_read_error, p00b_vi_edit]
       capstone: "From the JupyterLab terminal: cd to the data dir, ls the staged grid, and open plate_boundary.csv in vi to read its header — then exit cleanly."
       gate:
         must: "Capstone done — located the staged .nc grid via the shell AND opened a file in vi and exited cleanly (p00 not `wrong`; p00b not `wrong`)."

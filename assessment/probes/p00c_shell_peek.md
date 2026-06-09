@@ -1,0 +1,27 @@
+*AI-generated draft (Claude, Anthropic) — for review.*
+
+# Probe p00c — peek at a file from the shell  (coding · step 0 · skills: unix_basics)
+
+## Prompt (show to student)
+Before you load it in Python, you want a quick look at the **top** of
+`axial_botpt_2015-01-17.csv` — just the column header and the first couple of rows —
+straight from the terminal, **without opening an editor**. What command would you use?
+
+## Answer key
+```bash
+head axial_botpt_2015-01-17.csv        # first ~10 lines — see the header + first rows
+head -n 3 axial_botpt_2015-01-17.csv   # or limit to the first 3 lines
+cat axial_botpt_2015-01-17.csv         # dumps the WHOLE file (fine for tiny files, not a big CSV)
+```
+Key idea: `head` prints just the top of a file (great for checking a CSV's header without
+loading it); `cat` prints the whole thing. For a big data file, reach for `head`, not `cat`.
+
+## Hint ladder
+- **R1:** Which command prints a file's contents to the screen? Is there one that shows only the first few lines?
+- **R2:** `cat file` dumps the whole file; `head file` (or `head -n 3 file`) shows just the top — use `head` for a big CSV so you don't flood the terminal.
+- **R3 (reveal):** the snippet above.
+
+## Scoring (→ rubric §3)
+- `correct`: uses `head` (or `head -n`) to view the top of the file — or `cat` while recognizing it's only sensible for a small file.
+- `partial`: names `cat` but not `head`, or can't say how to limit the output on a large file.
+- `wrong`: can't view the file without opening an editor.
