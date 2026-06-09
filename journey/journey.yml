@@ -81,9 +81,9 @@ slice:
       coding_skills: [xarray_intro, data_access]
       chapters: [xarray_intro]
       readings: [lab1]
-      data: [axial_botpt_2015-01-17.csv]
+      data: [axial_tmpsf_2015-01.nc]
       probes: [p04_xarray_inspect]
-      capstone: "Load the staged Axial dataset and inspect its dimensions/coordinates."
+      capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable."
       gate:
         must: "Capstone done — opened the dataset and reported its dims/coords/variables (p04 not `wrong`)."
         unlocks: 4
@@ -97,9 +97,9 @@ slice:
       coding_skills: [pandas_timeseries, resample_plot]
       chapters: [pandas_intro, pandas_basics]
       readings: [lab4, tidal_nugget]
-      data: [axial_botpt_2015-01-17.csv]
+      data: [axial_botpt_2015-01.parquet]
       probes: [p05_pandas_resample]
-      capstone: "Resample bottom pressure and reveal the M2 (~12.4 h) tidal signal; describe it."
+      capstone: "Load data/axial_botpt_2015-01.parquet, resample bottom_pressure_psi to hourly, and reveal the M2 (~12.4 h) tidal signal; describe it."
       gate:
         must: "Capstone done — resampled bottom pressure and identified the ~12.4 h (M2) tide (p05 `correct` or `partial`)."
         unlocks: end   # reaches the doorstep of tmpsf / magma2vents (slice complete)

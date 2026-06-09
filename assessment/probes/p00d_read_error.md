@@ -3,9 +3,9 @@
 # Probe p00d — read a shell error and recover  (coding · step 0 · skills: unix_basics)
 
 ## Prompt (show to student)
-You run `cat axial_botpt_2015-01-17.csv` and the terminal answers:
+You run `cat plate_boundary.csv` and the terminal answers:
 ```
-cat: axial_botpt_2015-01-17.csv: No such file or directory
+cat: plate_boundary.csv: No such file or directory
 ```
 You know the file exists in the project. **What does this error mean, and what's your next move?**
 
@@ -17,7 +17,7 @@ Recover by orienting and pointing at the right place:
 pwd                       # where am I right now?
 ls                        # what's actually in this directory?
 cd ~/data                 # move to where the file lives (or give the full/relative path to cat)
-cat ~/data/axial_botpt_2015-01-17.csv
+cat ~/data/plate_boundary.csv
 ```
 Key idea: commands run **relative to where you are**. "No such file or directory" means the path
 doesn't resolve from here — fix your location or the path; tab-completion avoids typos.

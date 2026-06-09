@@ -3,13 +3,13 @@
 # Probe p05 — find the tide  (coding · step 4 · skills: pandas_timeseries, resample_plot)
 
 ## Prompt (show to student)
-You have a DataFrame `df` with a **datetime index** and a column `bp` (bottom pressure, hourly).
+You load `data/axial_botpt_2015-01.parquet` (`df = pd.read_parquet(...)`) — a **datetime index** and a column `bottom_pressure_psi` (1-minute samples).
 (a) How do you compute an hourly (or daily) **mean** with pandas `resample`?
 (b) The data carries a **~12.4-hour oscillation**. How would you make it visible, and what *is* that signal?
 
 ## Answer key
-- (a) `df['bp'].resample('1h').mean()` (already hourly) or `df['bp'].resample('1D').mean()` for daily — requires a `DatetimeIndex`.
-- (b) **Plot a few days at hourly resolution** (`df['bp'].plot()`): you'll see ~two highs and two lows per day — the **M2 lunar semidiurnal tide** (~12.42 h). An FFT/periodogram of the detrended series confirms the dominant ~12.4 h peak.
+- (a) `df['bottom_pressure_psi'].resample('1h').mean()` (or `'1D'` for daily) — requires a `DatetimeIndex` (this file has one).
+- (b) **Plot a few days at hourly resolution** (`df['bottom_pressure_psi'].resample('1h').mean().plot()`): you'll see ~two highs and two lows per day — the **M2 lunar semidiurnal tide** (~12.42 h, ~4 psi peak-to-peak here). An FFT/periodogram of the detrended series confirms the dominant ~12.4 h peak.
 - **Insight:** resampling to `'1D'` would *average the tide away* (Nyquist) — to *see* it you must keep sub-daily resolution.
 
 ## Hint ladder

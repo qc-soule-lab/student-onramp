@@ -4,14 +4,14 @@
 
 ## Prompt (show to student)
 Before you load it in Python, you want a quick look at the **top** of
-`axial_botpt_2015-01-17.csv` — just the column header and the first couple of rows —
+`plate_boundary.csv` — just the column header and the first couple of rows —
 straight from the terminal, **without opening an editor**. What command would you use?
 
 ## Answer key
 ```bash
-head axial_botpt_2015-01-17.csv        # first ~10 lines — see the header + first rows
-head -n 3 axial_botpt_2015-01-17.csv   # or limit to the first 3 lines
-cat axial_botpt_2015-01-17.csv         # dumps the WHOLE file (fine for tiny files, not a big CSV)
+head plate_boundary.csv        # first ~10 lines — see the header + first rows
+head -n 3 plate_boundary.csv   # or limit to the first 3 lines
+cat plate_boundary.csv         # dumps the WHOLE file (fine for tiny text files, not a big one)
 ```
 Key idea: `head` prints just the top of a file (great for checking a CSV's header without
 loading it); `cat` prints the whole thing. For a big data file, reach for `head`, not `cat`.
