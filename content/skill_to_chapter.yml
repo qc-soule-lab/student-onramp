@@ -16,9 +16,9 @@ chapters:
     path: src/lectures/environment/intro_to_unix.md
     url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/environment/intro_to_unix.md
     also: [src/lectures/environment/intro_to_git.md]
-  # vi_basics: NO in-book source — the book has no vi chapter. Parked until a CC-licensed /
-  # openly-usable vi survival reading is sourced (see journey/readings.md "Pending / to source").
-  # Do NOT fabricate a URL; vi_basics stays un-wired until then (ethical-check: link, never paste).
+  # NOTE: vi_basics has NO book chapter — the book edits via JupyterLab's text editor / nano,
+  # not vi. Its source is the external Wikibooks vi reference, wired as reading `vi_ref` in
+  # journey/readings.md (this file is book-only by design).
   jupyter_basics:
     path: src/lectures/environment/intro_to_jupyterlab.md
     url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/environment/intro_to_jupyterlab.md

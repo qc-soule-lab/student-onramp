@@ -21,6 +21,20 @@ External, **referenced not vendored** (linked like the book). Keys here resolve 
 
 *(Labs 5–8 — density/stratification, ocean waves, primary production, anoxic events — are out of the v1 slice; candidates for later breadth.)*
 
+## Source: Wikibooks — vi editor reference (coding · step 0 · skill `vi_basics`)
+
+External, **referenced not vendored** (link-only, like the book). The Abernathey book teaches
+file editing via JupyterLab's text editor / nano and does **not** cover vi, so vi has its own
+openly-licensed reference here.
+
+- **License:** Creative Commons **Attribution-ShareAlike 4.0** (Wikibooks site license). Link-only use complies; ShareAlike applies only if we adapt/copy (we don't).
+- **Cite as:** "Wikibooks contributors. *Learning the vi Editor*. Wikibooks, The Free Textbook Project. CC BY-SA 4.0."
+- **Accessed:** 2026-06-09.
+
+| key | What | URL |
+|---|---|---|
+| `vi_ref` | vi survival basics — insert mode (`i`), normal mode (`Esc`), save+quit (`:wq`), quit-no-save (`:q!`) | https://en.wikibooks.org/wiki/Learning_the_vi_Editor/vi_Reference |
+
 ## Optional enrichment — no-code visual primer (NOT gating, offered mainly to Novice-level students)
 
 Coding stays the core (Constitution VII); these are "see it visually first, then build it in code" pointers — link-only, never copied.
@@ -35,4 +49,3 @@ Coding stays the core (Constitution VII); these are "see it visually first, then
 | key | Need | Status |
 |---|---|---|
 | `tidal_nugget` | Short reading on tides at the seafloor / tidal modulation of diffuse vent flow (step 4 bridge) | **TBD** — confirm a CC-licensed source (a "Data Nugget" or OOI explainer) before wiring; placeholder until then. |
-| `vi_basics` | Short, openly-usable vi survival guide (open a file, normal vs. insert mode, `:wq` / `:q!`) for step 0 | **TBD** — book has no vi chapter. Source a CC-licensed / openly-usable reference before wiring (candidates: the book's `intro_to_unix.md` if it covers editors; a CC-BY vi intro). Link-only, never vendored. Unix half of step 0 is already sourced (`intro_to_unix.md`). |

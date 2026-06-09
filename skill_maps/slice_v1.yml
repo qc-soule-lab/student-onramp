@@ -38,7 +38,7 @@ coding:
     probes: [p00_unix_navigate]
   - id: vi_basics
     step: 0
-    chapter: vi_basics        # source TBD — see journey/readings.md "Pending / to source"
+    reading: vi_ref           # external (no book chapter) — Wikibooks vi reference; resolves in journey/readings.md
     summary: "Opens a file in vi; normal vs. insert mode; saves/exits (:wq) and discards (:q!)."
     probes: [p00b_vi_edit]
   - id: jupyter_basics

@@ -31,8 +31,8 @@ slice:
         concepts: [filesystem_navigation]
         question: "How do you reach the machine where Axial's data lives, find the staged grid, and peek inside a file?"
       coding_skills: [unix_basics, vi_basics]
-      chapters: [unix_basics]    # vi_basics source TBD — see journey/readings.md "Pending / to source"
-      readings: []
+      chapters: [unix_basics]    # unix from the book; vi has no book chapter — sourced as a reading
+      readings: [vi_ref]         # Wikibooks "Learning the vi Editor" (CC BY-SA 4.0) — see readings.md
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
       probes: [p00_unix_navigate, p00b_vi_edit]
       capstone: "From the JupyterLab terminal: cd to the data dir, ls the staged grid, and open plate_boundary.csv in vi to read its header — then exit cleanly."
