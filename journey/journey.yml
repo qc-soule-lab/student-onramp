@@ -1,0 +1,108 @@
+# journey.yml — v1 vertical slice: "From the map to the tidal signal"
+# AI-generated draft (Claude, Anthropic) — for review.
+#
+# Constitution VII invariant (enforced by tests/test_structure.py):
+#   every step with coding_skills MUST also name domain.concepts AND chapters.
+#   No free-floating coding. Coding enters only attached to a domain question.
+#
+# Cross-refs: coding_skills -> skill_maps/slice_v1.yml -> content/skill_to_chapter.yml
+#             probes        -> assessment/probes/<id>.md
+
+slice:
+  id: slice_v1
+  title: "From the map to the tidal signal"
+  end_state: >
+    The student has touched 0a/0b/0c domain concepts AND used Jupyter, Python,
+    matplotlib, xarray, and pandas — each in service of a real question — landing
+    at the doorstep of the thermal / diffuse-flow projects (tmpsf, magma2vents).
+
+  # Progressive gating: modules unlock in order. A module opens only when the
+  # previous module's gate is cleared. On a FAILED gate, remediate (drop to full
+  # scaffold, walk the hint ladders, re-attempt the capstone) — do NOT advance.
+  progression:
+    start_unlocked: [0]
+    rule: "step N+1 unlocks iff step N gate cleared; failure → remediate in place, never skip ahead"
+
+  steps:
+    - n: 0
+      name: "Get to the data"
+      tier: "0"
+      domain:
+        concepts: [filesystem_navigation]
+        question: "How do you reach the machine where Axial's data lives, find the staged grid, and peek inside a file?"
+      coding_skills: [unix_basics, vi_basics]
+      chapters: [unix_basics]    # vi_basics source TBD — see journey/readings.md "Pending / to source"
+      readings: []
+      data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
+      probes: [p00_unix_navigate, p00b_vi_edit]
+      capstone: "From the JupyterLab terminal: cd to the data dir, ls the staged grid, and open plate_boundary.csv in vi to read its header — then exit cleanly."
+      gate:
+        must: "Capstone done — located the staged .nc grid via the shell AND opened a file in vi and exited cleanly (p00 not `wrong`; p00b not `wrong`)."
+        unlocks: 1
+
+    - n: 1
+      name: "Locate it"
+      tier: "0a"
+      domain:
+        concepts: [latitude_longitude, earth_topography]
+        question: "Where on Earth is Axial Seamount, and what does its seafloor look like?"
+      coding_skills: [jupyter_basics, python_fundamentals, matplotlib_plot]
+      chapters: [jupyter_basics, python_fundamentals, numpy_matplotlib]
+      readings: [lab2]
+      enrichment: [geomapapp]    # OPTIONAL no-code visual primer (same GMRT data); never gating
+      data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
+      probes: [p01_meters_per_degree, p02_matplotlib_bathy]
+      capstone: "Plot Axial's location + bathymetry from the staged grid, boundary overlaid."
+      gate:
+        must: "Capstone done — bathymetry image produced WITH a colorbar; meters-per-degree understood (p01/p02 not `wrong`)."
+        unlocks: 2
+
+    - n: 2
+      name: "Why it's there"
+      tier: "0b"
+      domain:
+        concepts: [plate_tectonics, seafloor_spreading, ooi_observatory]
+        question: "Why is there a volcano here, and why did OOI wire it with sensors?"
+      coding_skills: []          # conceptual — Socratic Q&A + light reading (Constitution VI)
+      chapters: []
+      readings: [lab3, lab1]
+      probes: [p03_why_axial]
+      capstone: "Explain in 2-3 sentences why a volcano sits at Axial and why OOI instruments it."
+      gate:
+        must: "Capstone done — sound why-Axial + why-OOI explanation (p03 `correct` or `partial`)."
+        unlocks: 3
+
+    - n: 3
+      name: "Get the data"
+      tier: "0b"
+      domain:
+        concepts: [ooi_data_collection]
+        question: "How does a cabled observatory get ocean data to your laptop?"
+      coding_skills: [xarray_intro, data_access]
+      chapters: [xarray_intro]
+      readings: [lab1]
+      data: [axial_botpt_2015-01-17.csv]
+      probes: [p04_xarray_inspect]
+      capstone: "Load the staged Axial dataset and inspect its dimensions/coordinates."
+      gate:
+        must: "Capstone done — opened the dataset and reported its dims/coords/variables (p04 not `wrong`)."
+        unlocks: 4
+
+    - n: 4
+      name: "See the science"
+      tier: "0c"
+      domain:
+        concepts: [seafloor_tides, tidal_modulation_vents]
+        question: "Is there a tide on the seafloor — and can you see it in the data?"
+      coding_skills: [pandas_timeseries, resample_plot]
+      chapters: [pandas_intro, pandas_basics]
+      readings: [lab4, tidal_nugget]
+      data: [axial_botpt_2015-01-17.csv]
+      probes: [p05_pandas_resample]
+      capstone: "Resample bottom pressure and reveal the M2 (~12.4 h) tidal signal; describe it."
+      gate:
+        must: "Capstone done — resampled bottom pressure and identified the ~12.4 h (M2) tide (p05 `correct` or `partial`)."
+        unlocks: end   # reaches the doorstep of tmpsf / magma2vents (slice complete)
+      bridge: >
+        Tidal loading also modulates diffuse vent flow — the very question the
+        tmpsf / magma2vents projects pursue. You're now at their doorstep.

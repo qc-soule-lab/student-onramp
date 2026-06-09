@@ -1,0 +1,51 @@
+# skill_to_chapter.yml — coding skill -> book chapter (reference, never vendored).
+# AI-generated draft (Claude, Anthropic) — for review.
+#
+# Book: qc-soule-lab/earth-env-data-science-book (Abernathey et al., CC BY-SA 4.0), branch master.
+# Paths VERIFIED against the mirror 2026-06-09. tests/test_links.py re-checks they resolve.
+# `path` = path in the mirror; `url` = GitHub blob link the student opens; `assignment` = hands-on exercise.
+
+book:
+  repo: qc-soule-lab/earth-env-data-science-book
+  branch: master
+  license: "CC BY-SA 4.0 (Abernathey et al.) — reference only, do not re-host"
+  blob_base: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/
+
+chapters:
+  unix_basics:
+    path: src/lectures/environment/intro_to_unix.md
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/environment/intro_to_unix.md
+    also: [src/lectures/environment/intro_to_git.md]
+  # vi_basics: NO in-book source — the book has no vi chapter. Parked until a CC-licensed /
+  # openly-usable vi survival reading is sourced (see journey/readings.md "Pending / to source").
+  # Do NOT fabricate a URL; vi_basics stays un-wired until then (ethical-check: link, never paste).
+  jupyter_basics:
+    path: src/lectures/environment/intro_to_jupyterlab.md
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/environment/intro_to_jupyterlab.md
+    also: [src/lectures/environment/intro_to_unix.md, src/lectures/environment/intro_to_git.md]
+  python_fundamentals:
+    path: src/lectures/core_python/python_fundamentals.ipynb
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/core_python/python_fundamentals.ipynb
+    assignment: src/assignments/python_basics_and_functions.ipynb
+  numpy_matplotlib:
+    path: src/lectures/basic_scipy/numpy_and_matplotlib.ipynb
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/basic_scipy/numpy_and_matplotlib.ipynb
+    assignment: src/assignments/numpy_matplotlib.ipynb
+    also: [src/lectures/basic_scipy/more_matplotlib.ipynb]
+  xarray_intro:
+    path: src/lectures/xarray/xarray_intro.md
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/xarray/xarray_intro.md
+    assignment: src/assignments/basic_xarray.ipynb
+    also: [src/lectures/xarray/xarray.ipynb]
+  pandas_intro:
+    path: src/lectures/pandas/pandas_intro.md
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/pandas/pandas_intro.md
+    assignment: src/assignments/basic_pandas.ipynb
+  pandas_basics:
+    path: src/lectures/pandas/basic_pandas.ipynb
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/pandas/basic_pandas.ipynb
+  # BONUS (not required for the slice): real maps with cartopy
+  mapping_cartopy:
+    path: src/lectures/mapping_cartopy.ipynb
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/mapping_cartopy.ipynb
+    assignment: src/assignments/cartopy.ipynb

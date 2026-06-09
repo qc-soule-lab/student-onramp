@@ -1,0 +1,68 @@
+# slice_v1.yml — target competencies for the v1 slice (domain + coding).
+# AI-generated draft (Claude, Anthropic) — for review.
+#
+# Each competency is probed and leveled Novice/Developing/Proficient (assessment/rubric.md).
+# `chapter` keys resolve in content/skill_to_chapter.yml; `probes` resolve in assessment/probes/.
+
+domain:
+  - id: filesystem_navigation
+    step: 0
+    summary: "Reaches the machine where data lives; finds and inspects files from the shell before code touches them."
+    probes: [p00_unix_navigate]
+  - id: latitude_longitude
+    step: 1
+    summary: "Reads lat/long; has meters-per-degree intuition (1 deg lat ~111 km; lon shrinks with cos(lat))."
+    probes: [p01_meters_per_degree]
+  - id: earth_topography
+    step: 1
+    summary: "Understands the seafloor has relief; bathymetry is a depth map."
+    probes: [p01_meters_per_degree, p02_matplotlib_bathy]
+  - id: plate_tectonics_ooi
+    step: 2
+    summary: "Connects spreading center -> volcanism at Axial -> why OOI instruments it."
+    probes: [p03_why_axial]
+  - id: ooi_data_collection
+    step: 3
+    summary: "Knows a cabled observatory streams sensor data retrievable as files/datasets."
+    probes: [p04_xarray_inspect]
+  - id: seafloor_tides
+    step: 4
+    summary: "Tides reach the seafloor; the dominant lunar semidiurnal (M2) period is ~12.4 h."
+    probes: [p05_pandas_resample]
+
+coding:
+  - id: unix_basics
+    step: 0
+    chapter: unix_basics
+    summary: "Navigates the filesystem (cd, ls, pwd); finds and inspects files from the shell."
+    probes: [p00_unix_navigate]
+  - id: vi_basics
+    step: 0
+    chapter: vi_basics        # source TBD — see journey/readings.md "Pending / to source"
+    summary: "Opens a file in vi; normal vs. insert mode; saves/exits (:wq) and discards (:q!)."
+    probes: [p00b_vi_edit]
+  - id: jupyter_basics
+    step: 1
+    chapter: jupyter_basics
+    summary: "Runs cells, restarts kernel, reads tracebacks in JupyterLab."
+    probes: [p02_matplotlib_bathy]
+  - id: python_fundamentals
+    step: 1
+    chapter: python_fundamentals
+    summary: "Variables, lists, indexing, calling functions, importing modules."
+    probes: [p02_matplotlib_bathy]
+  - id: matplotlib_plot
+    step: 1
+    chapter: numpy_matplotlib
+    summary: "Displays a 2D array as an image with a colorbar; labels axes."
+    probes: [p02_matplotlib_bathy]
+  - id: xarray_intro
+    step: 3
+    chapter: xarray_intro
+    summary: "Opens a dataset; inspects dims, coords, variables; selects a variable."
+    probes: [p04_xarray_inspect]
+  - id: pandas_timeseries
+    step: 4
+    chapter: pandas_intro
+    summary: "Datetime-indexed DataFrame; resample to a frequency; plot a series."
+    probes: [p05_pandas_resample]
