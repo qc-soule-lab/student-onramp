@@ -27,6 +27,7 @@
 **Decision**: live protocol runs, not scripted automation. `sonnet_acceptance_protocol.md` defines: launch on `claude-sonnet-4-6`, answer assessment from a fixture profile script verbatim, traverse all 4 steps, score against a checklist (correct leveling per rubric, hint-ladders followed not improvised, every coding moment attached to a domain step, artifacts generated + gitignored). Two passes: `profile_novice`, `profile_intermediate`.
 **Rationale**: the runtime is an interactive Socratic conversation — scripting it end-to-end (e.g., `claude -p` pipelines) would test a caricature of the flow. Fixture-scripted *human-in-the-loop* runs are reproducible enough (same answers, same rubric) and verify the thing that matters: Sonnet following structure.
 **Alternatives considered**: automated transcript replay — brittle, defers the hard part; partial automation may arrive in Phase 2 once the procedure is stable.
+**Update 2026-06-10 (PI-approved)**: the anticipated partial automation landed as the **persona acceptance harness** (`validation/persona_acceptance_plan.md`) — generative persona *agents* (not scripted replay) answer the live Socratic teacher within bounded knowledge cards; an Opus grader audits invariants + time-on-task. The human fixture runs remain final sign-off.
 
 ## Probe sourcing
 

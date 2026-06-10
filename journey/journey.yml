@@ -52,7 +52,7 @@ slice:
       enrichment: [geomapapp]    # OPTIONAL no-code visual primer (same GMRT data); never gating
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
       probes: [p01_meters_per_degree, p02_matplotlib_bathy]
-      capstone: "Plot Axial's location + bathymetry from the staged grid, boundary overlaid."
+      capstone: "Plot Axial's location + bathymetry from the staged grid, boundary overlaid. (Heads-up: plate_boundary.csv spans the whole NE Pacific — limit your axes to the grid's extent.)"
       gate:
         must: "Capstone done — bathymetry image produced WITH a colorbar; meters-per-degree understood (p01/p02 not `wrong`)."
         unlocks: 2
@@ -67,7 +67,9 @@ slice:
       chapters: []
       readings: [lab3, lab1]
       probes: [p03_why_axial]
-      capstone: "Explain in 2-3 sentences why a volcano sits at Axial and why OOI instruments it."
+      # capstone deliberately goes one notch past p03 (same key concepts, applied
+      # framing) — a Proficient student must not get the probe verbatim again (P4 run defect D1)
+      capstone: "Connect Axial's double magma supply (spreading ridge + hotspot) to its frequent eruptions — and name one thing a cabled real-time observatory catches that a yearly ship visit would miss."
       gate:
         must: "Capstone done — sound why-Axial + why-OOI explanation (p03 `correct` or `partial`)."
         unlocks: 3

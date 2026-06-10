@@ -4,6 +4,10 @@
 
 The headline gate (Constitution I): the full slice runs **on Sonnet**, end-to-end, for two fixture profiles. This is a **live, human-in-the-loop** run (the runtime is an interactive Socratic conversation — scripting it end-to-end would test a caricature). Reproducible because the answers are fixed and scored against the rubric.
 
+> **Automated persona pass runs first** (PI-approved 2026-06-10): four agent-driven
+> personas via `run_persona_test.py` — see `persona_acceptance_plan.md` and
+> `grader_checklist.md`. The human fixture run below remains the final sign-off.
+
 ## Setup
 1. Fresh clone (or clean working copy) of `student-onramp` on the Hub.
 2. **Model = `claude-sonnet-4-6`** (a Standard student seat, or `/model claude-sonnet-4-6`). This is the point — do **not** run acceptance on Opus.

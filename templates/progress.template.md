@@ -6,7 +6,8 @@
 
 | Step | Gate | Status | Level | Treatment | Capstone | Feedback |
 |---|---|---|---|---|---|---|
-| 1. Locate it | {{unlocked/cleared}} | {{todo/in_progress/done}} | {{level_1}} | {{treatment_1}} | {{y/n}} | {{y/n}} |
+| 0. Get to the data | {{unlocked/cleared}} | {{todo/in_progress/done}} | {{level_0}} | {{treatment_0}} | {{y/n}} | {{y/n}} |
+| 1. Locate it | {{locked/unlocked/cleared}} | {{todo/in_progress/done}} | {{level_1}} | {{treatment_1}} | {{y/n}} | {{y/n}} |
 | 2. Why it's there | {{locked/unlocked/cleared}} | {{todo/in_progress/done}} | {{level_2}} | {{treatment_2}} | {{y/n}} | {{y/n}} |
 | 3. Get the data | {{locked/unlocked/cleared}} | {{todo/in_progress/done}} | {{level_3}} | {{treatment_3}} | {{y/n}} | {{y/n}} |
 | 4. See the science | {{locked/unlocked/cleared}} | {{todo/in_progress/done}} | {{level_4}} | {{treatment_4}} | {{y/n}} | {{y/n}} |

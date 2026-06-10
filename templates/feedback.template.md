@@ -1,7 +1,8 @@
 # Activity feedback — {{student_name_or_anon}}
 
 <!-- LOCAL + PRIVATE by default (gitignored). Shared with Dr. Soule only with the student's consent.
-     One entry appended per activity. This is how the onramp improves between students. -->
+     One entry appended per activity, at the END of the file (keep chronological order).
+     This is how the onramp improves between students. -->
 
 ---
 ## Step {{step_n}} — {{step_name}}   ({{timestamp}})
@@ -15,3 +16,6 @@
   ```
 - **Treatment given:** {{full_scaffold | compressed | capstone_only}}   ·   **Level:** {{novice | developing | proficient}}
 ---
+
+<!-- ⟂ END MARKER: keep this as the LAST line. Insert each new entry IMMEDIATELY ABOVE
+     this marker (it is the one unique anchor — entries then stay chronological). -->

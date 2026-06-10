@@ -11,6 +11,7 @@ Each step below shows the **level** the assessment found and the **treatment** t
 
 | Step | Domain question | Your level | Treatment | Book chapter |
 |---|---|---|---|---|
+| 0. Get to the data | How do you reach the data on the machine? | {{level_0}} | {{treatment_0}} | {{chapter_0_url}} |
 | 1. Locate it | Where is Axial & what's its seafloor? | {{level_1}} | {{treatment_1}} | {{chapter_1_url}} |
 | 2. Why it's there | Why a volcano + why OOI? | {{level_2}} | {{treatment_2}} | — (conceptual) |
 | 3. Get the data | How does OOI data reach you? | {{level_3}} | {{treatment_3}} | {{chapter_3_url}} |
