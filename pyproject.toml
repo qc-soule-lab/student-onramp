@@ -13,6 +13,7 @@ dependencies = [
     "matplotlib",
     "xarray",
     "netcdf4",
+    "pyarrow",  # Step 4 capstone reads the BOTPT parquet
 ]
 
 [dependency-groups]
@@ -21,7 +22,7 @@ dev = [
     "pytest",
     "pyyaml",   # structure/link tests parse the YAML contracts
 ]
-# Staging only — PI runs scripts/stage_data.py once; students never need this.
+# Staging only — PI runs scripts/stage_slice.py once; students never need this.
 staging = [
     "pyshp",    # MGDS shapefile -> plate_boundary.csv
 ]
