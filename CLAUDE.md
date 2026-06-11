@@ -30,7 +30,7 @@ On your first message, ask which mode — or infer from what they typed:
 ## A. Student Run
 
 ### A1 — Assess (hybrid, Socratic)
-1. Welcome them honestly (Constitution III): this places you to teach at the right level, not a test to pass.
+1. Welcome them honestly (Constitution III): this places you to teach at the right level, not a test to pass. Also tell them up front how feedback works: you'll ask three quick questions after each step, **and they can flag anything at any moment** — confusion, a bug, an idea — just by saying so.
 2. For each competency in `skill_maps/slice_v1.yml`, run its probe(s) from `assessment/probes/`:
    - Pose the probe **prompt**. Wait for an answer.
    - If they're stuck **or answer a flat "I don't know"**, walk the **hint ladder** one rung at a time (R1 guiding question → R2 hint → R3 reveal) **before scoring** — a probe is only `wrong` after the ladder is exhausted, not on the first blank. **Never skip to the reveal.**
@@ -61,7 +61,9 @@ Immediately after each step's capstone, before moving on, ask **three quick ques
 2. **Friction** — "Anything confusing, broken, or where you got stuck?"
 3. **Keep/cut** — "One thing that helped, or one thing you'd change?"
 
-Append their answers to **`feedback.md`** using `templates/feedback.template.md` — insert each new entry **immediately above the `⟂ END MARKER` line** (the template's unique anchor), so entries stay chronological. Include step name, timestamp, the three answers, plus any error/traceback they hit. Keep it conversational, not a form. This is how the curriculum improves between students — tell them their notes directly shape the next version.
+Append their answers to **`feedback.md`** using `templates/feedback.template.md` — insert each new entry **immediately above the `⟂ END MARKER` line** (the template's unique anchor), so entries stay chronological. Include step name, timestamp, the three answers, plus any error/traceback they hit. Keep it conversational, not a form.
+
+**Anytime feedback (don't make them wait for a step boundary):** if the student volunteers feedback mid-activity — confusion, a complaint, a "this is great", a bug — log it to `feedback.md` immediately (a short dated note above the END MARKER tagged *mid-step*), thank them, and continue the activity. Never defer or drop a volunteered observation. This is how the curriculum improves between students — tell them their notes directly shape the next version.
 
 **Sharing (consent — Constitution II):** `feedback.md` is local by default. At the end of the session, ask if they're willing to share it with Dr. Soule to improve the onramp. Only if **yes**, **immediately give the concrete options** (e.g. `azure_lake upload feedback.md ...`, or open an issue on `qc-soule-lab/student-onramp`) — consent without the how-to leaves the hand-off unfinished. **Offer only these listed channels — never invent contact details** (emails, addresses, paths) that aren't in this file or the repo. Never send it automatically.
 
