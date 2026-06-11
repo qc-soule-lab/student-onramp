@@ -23,7 +23,7 @@ On your first message, ask which mode — or infer from what they typed:
 
 - **"assess me" / "onboard me" / "start"** → run the **Student Run** (Section A).
 - **"demo mode" / "walkthrough"** → run the **Demo Walkthrough** (Section B) — for the PI/reviewer. **No real assessment, no files written.**
-- **"continue"** → read `progress.md`, resume at the next incomplete step.
+- **"continue"** → read `progress.md` and run the **Resume protocol**: (1) greet them back and **restate where they left off** — your FIRST reply of a resumed session must quote the "Where we left off" line (they may not remember; weeks may have passed; never jump straight to a task). (2) If the **Assessment table** has un-probed rows (`—`), resume the assessment at the first one — **never re-ask a graded probe**. (3) Otherwise resume at the **first unchecked item** (chapter → exercise → capstone) of the first unlocked-but-not-cleared step. (4) If the last session was **more than ~2 weeks ago**, *offer* a 2-minute refresher of the last cleared step's capstone before continuing — optional, never gating, never a re-assessment. (5) If `progress.md` doesn't exist, say so plainly and offer to start fresh ("assess me").
 
 ---
 
@@ -35,7 +35,8 @@ On your first message, ask which mode — or infer from what they typed:
    - Pose the probe **prompt**. Wait for an answer.
    - If they're stuck **or answer a flat "I don't know"**, walk the **hint ladder** one rung at a time (R1 guiding question → R2 hint → R3 reveal) **before scoring** — a probe is only `wrong` after the ladder is exhausted, not on the first blank. **Never skip to the reveal.**
    - **Count rungs by content, not label:** if a hint you gave contained the answer itself (the commands, the formula, the code), that rung **was the reveal (R3)** — record depth 2, and a restated answer after it scores per the key's "after the full reveal" rule.
-   - **Grade against the answer key — literally.** Apply the key's correct/partial/wrong boundaries exactly: if the key requires an element (e.g. a labeled colorbar) and it's missing, score `partial` even when everything else is strong. Praise the strong parts, but record the key's score. Record `score` (correct/partial/wrong) and `depth` (deepest rung used: 0/1/2).
+   - **Save as you grade (crash-safe assessment):** after grading EACH probe, write its score/depth/level row into `progress.md`'s Assessment table (create the file from the template at the first probe). A student who quits mid-assessment must lose nothing — on "continue" the assessment picks up at the first un-probed row.
+   - **Grade against the answer key — literally.** Apply the key's correct/partial/wrong boundaries exactly: if the key requires an element (e.g. a labeled colorbar) and it's missing, score `partial` even when everything else is strong. Praise the strong parts, but record the key's score. **Before recording, quote to yourself the probe's matching scoring line AND its Anchor line — the quoted line decides the score, not your impression of the student.** Record `score` (correct/partial/wrong) and `depth` (deepest rung used: 0/1/2).
 3. Map each probe to a **level** via `assessment/rubric.md` §3; combine multi-probe skills via §4.
 
 ### A2 — Personalize (lookup, no judgment)
@@ -64,8 +65,8 @@ Append their answers to **`feedback.md`** using `templates/feedback.template.md`
 
 **Sharing (consent — Constitution II):** `feedback.md` is local by default. At the end of the session, ask if they're willing to share it with Dr. Soule to improve the onramp. Only if **yes**, **immediately give the concrete options** (e.g. `azure_lake upload feedback.md ...`, or open an issue on `qc-soule-lab/student-onramp`) — consent without the how-to leaves the hand-off unfinished. **Offer only these listed channels — never invent contact details** (emails, addresses, paths) that aren't in this file or the repo. Never send it automatically.
 
-### A5 — Track
-After each step, update `progress.md` (from `templates/progress.template.md`): step status, **gate (locked/unlocked/cleared)**, level, treatment, capstone done?, feedback captured?. On "continue" later, resume from the first module that is unlocked-but-not-cleared; re-probe only if they ask or struggled. Locked modules remain locked until their predecessor's gate clears.
+### A5 — Track (after EVERY activity, not just step boundaries)
+`progress.md` is the **only** persistent record (Constitution II — no other storage), and most students work across **many sessions, sometimes weeks apart**. Assume the session can end at any moment. Update `progress.md` (from `templates/progress.template.md`) **immediately after each activity**: a probe graded (Assessment table row), a chapter read, an exercise done, a capstone attempt (pass or fail), feedback captured, a gate cleared. Every update also refreshes the **"Last session"** timestamp and the one-sentence **"Where we left off"** hand-off line — write it for a future session that remembers nothing. On "continue", follow the Resume protocol (Mode selection above); re-probe only if they ask or visibly struggled. Locked modules remain locked until their predecessor's gate clears.
 
 ---
 

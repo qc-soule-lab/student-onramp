@@ -213,6 +213,23 @@ exchanges across the four runs; teacher context grows to ~slice size each run �
 single-digit-dollars-per-run order of token spend on Sonnet, grading on Opus extra. Turn cap
 100/run bounds the worst case.
 
+## Scenario R — interrupt / resume (PI requirement 2026-06-10)
+
+Real students take the slice across **many sessions, sometimes weeks apart** — almost none
+finish in one sitting. The runtime now persists everything to `progress.md` (the only legal
+store after D10): per-probe assessment rows written **as graded**, per-activity step state
+(chapter/exercise/capstone), a "Last session" timestamp and a one-sentence "Where we left off"
+hand-off; CLAUDE.md's Resume protocol restates position, never re-asks a graded probe, resumes
+at the first unchecked item, and *offers* (never requires) a refresher after a ≥2-week gap.
+
+**Test recipe** (after the four baseline runs):
+1. Interrupt: `run_persona_test.py p2 --max-exchanges 12 --keep-workspaces` — stops mid-assessment.
+2. Resume: `run_persona_test.py p2 --seed-teacher <ws>/teacher --opening "hi, it's riley again — continue"`
+   — fresh teacher session, seeded artifacts, returning-student framing added to the card.
+3. Grade with the standard checklist **plus**: no graded probe re-asked · position restated from
+   the hand-off line · locks preserved · assessment completes from the first `—` row · (long-gap
+   variant: refresher offered, optional). Run twice: once mid-assessment, once mid-step.
+
 ## Deliverables (implementation, after sign-off)
 
 1. `validation/personas/p1_hs_senior.md … p4_grad_student.md` — the four cards (knowledge

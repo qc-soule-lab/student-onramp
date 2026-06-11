@@ -98,6 +98,12 @@ def word_count(text):
     return len(text.split())
 
 
+def normalize_prompt(prompt):
+    """Empty stdin makes `claude -p --resume` look for a deferred-tool marker
+    and die (P1 run-1 abort, defect D15) — never send an empty prompt."""
+    return prompt if prompt and prompt.strip() else "(continue)"
+
+
 def parse_stream_json(stdout):
     """Collect assistant text/tool_use events + the final result metadata."""
     tools, meta = [], {}
@@ -134,7 +140,7 @@ def _summarize_input(inp):
 
 # ------------------------------------------------------------------ workspaces
 
-def setup_teacher_ws(base):
+def setup_teacher_ws(base, seed_dir=None):
     ws = base / "teacher"
     ws.mkdir(parents=True)
     for d in TEACHER_DIRS:
@@ -142,6 +148,12 @@ def setup_teacher_ws(base):
     for f in TEACHER_FILES:
         shutil.copy2(ROOT / f, ws / f)
     subprocess.run(["git", "init", "-q"], cwd=ws, check=True)  # check-ignore needs a repo
+    if seed_dir:  # resume test: carry the generated artifacts of an interrupted run
+        for f in GENERATED:
+            src = Path(seed_dir) / f
+            if src.exists():
+                shutil.copy2(src, ws / f)
+                print(f"[info] seeded {f} from {seed_dir}")
     return ws
 
 
@@ -179,6 +191,7 @@ def build_cmd(model, allowed_tools, session_id=None, system_prompt=None):
 
 def claude_call(cwd, prompt, model, allowed_tools, session_id=None, system_prompt=None):
     cmd = build_cmd(model, allowed_tools, session_id, system_prompt)
+    prompt = normalize_prompt(prompt)
     for attempt in (1, 2):
         t0 = time.monotonic()
         r = subprocess.run(cmd, cwd=cwd, input=prompt, capture_output=True,
@@ -196,15 +209,25 @@ def claude_call(cwd, prompt, model, allowed_tools, session_id=None, system_promp
 
 def run(persona_path, args):
     card = persona_path.read_text()
-    opening = extract_opening(card)
+    opening = args.opening or extract_opening(card)
     sys_prompt = strip_opening_section(strip_grader_section(card)) + (
         "\n\n(You already sent your opening message — the conversation is "
         "underway; each prompt you receive is the assistant's latest reply.)")
+    if args.opening:  # resume test: returning student, weeks may have passed
+        sys_prompt += (
+            "\n\n(RESUMED SESSION: you are RETURNING to this course after a "
+            "break — you previously completed part of it. You remember the "
+            "gist of what the teacher ACTUALLY covered with you, fuzzily. "
+            "CRITICAL: anything the teacher never taught you is still outside "
+            "your knowledge boundary — do NOT invent memories of lessons "
+            "('I remember we used X') for topics you were never taught; your "
+            "card's What-you-do-NOT-know list still applies to those. Your "
+            f"opening message was: {args.opening!r})")
     persona = persona_path.stem
 
     base = Path(args.workdir) if args.workdir else Path(
         tempfile.mkdtemp(prefix=f"onramp_{persona}_"))
-    teacher_ws = setup_teacher_ws(base)
+    teacher_ws = setup_teacher_ws(base, seed_dir=args.seed_teacher)
     student_ws = setup_student_ws(base)
     print(f"[info] workspaces under {base}")
 
@@ -219,6 +242,13 @@ def run(persona_path, args):
             t_tools, t = claude_call(teacher_ws, student_msg, args.teacher_model,
                                      TEACHER_TOOLS, session_id=t_session)
             t_session = t["session_id"]
+            if not t["text"].strip():
+                # tool-only turn with no prose (observed P1 ex13) — nudge once
+                more_tools, t = claude_call(
+                    teacher_ws, "(continue — your previous reply had no text)",
+                    args.teacher_model, TEACHER_TOOLS, session_id=t_session)
+                t_session = t["session_id"]
+                t_tools += more_tools
             teacher_texts.append(t["text"])
 
             progress = teacher_ws / "progress.md"
@@ -366,6 +396,11 @@ def main():
                     help="mechanics check: stop after 2 exchanges")
     ap.add_argument("--keep-workspaces", action="store_true")
     ap.add_argument("--workdir", help="workspace parent (default: mkdtemp)")
+    ap.add_argument("--seed-teacher", metavar="DIR",
+                    help="resume test: copy journey_plan/progress/feedback.md "
+                         "from a prior run's teacher workspace before starting")
+    ap.add_argument("--opening", help="override the card's opening message "
+                                      "(resume test: e.g. \"hi, it's sam again — continue\")")
     args = ap.parse_args()
 
     p = Path(args.persona)

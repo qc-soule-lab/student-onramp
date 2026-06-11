@@ -77,6 +77,15 @@ def test_prompt_never_in_argv():
         assert not tok.startswith("---")
 
 
+def test_normalize_prompt_never_empty():
+    """Empty stdin makes resumed `claude -p` hunt for a deferred-tool marker
+    and abort (P1 run-1, defect D15)."""
+    assert rpt.normalize_prompt("") == "(continue)"
+    assert rpt.normalize_prompt("   \n") == "(continue)"
+    assert rpt.normalize_prompt(None) == "(continue)"
+    assert rpt.normalize_prompt("real message") == "real message"
+
+
 def test_parse_stream_json_collects_tools_and_result():
     lines = "\n".join([
         json.dumps({"type": "system", "subtype": "init"}),
