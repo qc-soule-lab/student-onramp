@@ -7,6 +7,8 @@ Scripted answers a human tester gives **verbatim** during a Sonnet acceptance ru
 | Probe | Answer to give (verbatim) | Expected score / depth | Expected level |
 |---|---|---|---|
 | p00 unix | "I'm not sure… type the folder name?" then after R2: "oh — `cd data`, `ls`?" | partial / depth 1–2 | Novice |
+| p00c shell peek | "Um… double-click it? I don't know a terminal command for that." after R1: "something like… 'top'?" after the reveal: "oh — `head plate_boundary.csv`." | wrong / depth 2 (per anchor: command named only in the reveal) | Novice |
+| p00d read error | "Maybe the file got deleted somehow?" then after R2: "oh — I'm just in the wrong folder, so `cd` there first and try again?" | partial / depth 1–2 | Novice–Developing (unix skill still Novice via p00/p00c — lowest wins) |
 | p00b vi | "Honestly I don't know how to get out of vi." then after R3: "`:q!`, got it." | wrong / depth 2 | Novice |
 | p01 meters/deg | "Maybe ~100 km? Not sure about longitude." then after R2: "shorter near the pole?" | partial / depth 1–2 | Novice |
 | p02 matplotlib | "`plt.plot(depth)`? I don't know about a colorbar." | wrong / depth 2 | Novice |

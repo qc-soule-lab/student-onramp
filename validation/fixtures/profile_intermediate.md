@@ -7,6 +7,8 @@ Scripted verbatim answers for a Sonnet acceptance run. Purpose: exercise **mixed
 | Probe | Answer to give (verbatim) | Expected score / depth | Expected level | Step treatment |
 |---|---|---|---|---|
 | p00 unix | "`cd data`, then `ls -lh` to see it and its size." | correct / depth 0 | Proficient | step 0 → capstone-only |
+| p00c shell peek | "`head plate_boundary.csv` — or `head -3` if I just want the header and a couple of rows." | correct / depth 0 | Proficient | (step 0 capstone-only) |
+| p00d read error | "I'm in the wrong directory — `pwd` to check where I am, then `cd` over or just use the full path." | correct / depth 0 | Proficient | (step 0 capstone-only) |
 | p00b vi | "`vi file`, it opens in normal mode; `:q` to quit, `:q!` to discard, `:wq` to save." | correct / depth 0 | Proficient | (step 0 capstone-only) |
 | p01 meters/deg | "1° lat ≈ 111 km; 1° lon is shorter, about 111·cos(46°) ≈ 77 km." | correct / depth 0 | Proficient | step 1 → capstone-only |
 | p02 matplotlib | "`plt.imshow(depth)` then `plt.colorbar(label='depth (m)')`." | correct / depth 0 | Proficient | (step 1 capstone-only) |
