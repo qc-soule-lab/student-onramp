@@ -25,3 +25,4 @@ loading it); `cat` prints the whole thing. For a big data file, reach for `head`
 - `correct`: uses `head` (or `head -n`) to view the top of the file — or `cat` while recognizing it's only sensible for a small file.
 - `partial`: names `cat` but not `head`, or can't say how to limit the output on a large file.
 - `wrong`: can't view the file without opening an editor.
+**Anchor (Constitution III):** if `head`/`cat` were named for the student before they produced them, that was the reveal — a restated command scores `wrong`, depth 2.

@@ -24,3 +24,4 @@ Key idea: `open_dataset` returns a labeled `Dataset`; displaying it (or `.dims/.
 - `correct`: `open_dataset` **and** inspects dims/coords/variables (and/or selects one).
 - `partial`: opens the file but unsure how to inspect or select.
 - `wrong`: can't open/inspect.
+**Anchor (Constitution III):** `open_dataset` or the dims/coords/data_vars pattern named only after you spelled it out = revealed → that part scores as after-reveal (`wrong`), depth 2.

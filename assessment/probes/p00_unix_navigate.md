@@ -25,3 +25,4 @@ file sizes — the shell is how you find and inspect the data before any code to
 - `correct`: navigates (`cd`) **and** lists (`ls`) **and** reads the size (`-lh`/`du`).
 - `partial`: navigates and lists but can't confirm the size, or lists without `cd`.
 - `wrong`: can't reach or list the directory.
+**Anchor (Constitution III):** if `cd`/`ls -lh` were shown to the student (in a hint or example) before they produced them, that was the reveal — a restated sequence scores `wrong`, depth 2.

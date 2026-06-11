@@ -21,3 +21,4 @@ You load `data/axial_botpt_2015-01.parquet` (`df = pd.read_parquet(...)`) — a 
 - `correct`: correct `resample` syntax **and** identifies the tidal / M2 ~12.4 h signal (bonus: the don't-daily-average insight).
 - `partial`: resample right but doesn't name the tide, or names the tide without the syntax.
 - `wrong`: neither.
+**Anchor (Constitution III):** the resample syntax or the tide identification produced only after R2/R3 spelled them out scores per the after-reveal rule — an unaided tidal ID with hinted syntax is `partial`, not `correct`.

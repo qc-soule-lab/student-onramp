@@ -31,3 +31,4 @@ mode to type; **`Esc`** returns to normal mode; `:q` quits, `:q!` quits without 
   distinguishing save vs. discard.
 - `partial`: opens the file but is unsure how to exit / can't tell `:q` from `:wq` from `:q!`.
 - `wrong`: can't open the file in vi.
+**Anchor (Constitution III):** keystrokes produced only after the survival set (`Esc`/`:q`/`:q!`/`:wq`) was shown score `wrong`, depth 2 — restating the reveal is not knowing it.

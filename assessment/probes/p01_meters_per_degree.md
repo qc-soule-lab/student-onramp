@@ -20,3 +20,4 @@ Axial Seamount is near **46°N, 130°W**.
 - `correct`: both (a) ≈ 111 km **and** (b) shorter with the convergence/cos reason.
 - `partial`: (a) right but (b) missing the reason; or (b) direction right without (a)/cos.
 - `wrong`: neither.
+**Anchor (Constitution III):** if 40,000/360 was handed over before they computed it, or cos(lat) before they reasoned the convergence, those parts were revealed — score per the after-reveal rule, not by the restatement.

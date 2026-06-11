@@ -31,3 +31,4 @@ doesn't resolve from here — fix your location or the path; tab-completion avoi
 - `correct`: reads it as a *wrong-directory / wrong-path* problem (not "file deleted/corrupt") **and** recovers via `pwd`/`ls`/`cd` or the correct path.
 - `partial`: right idea but vague on recovery, or only fixes it by trial-and-error guessing.
 - `wrong`: misreads the error (thinks the file is gone/broken) or is stuck.
+**Anchor (Constitution III):** if you told them it's a wrong-directory/path problem before they said it, that was the reveal — a restated diagnosis scores `wrong`, depth 2.

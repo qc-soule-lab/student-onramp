@@ -26,3 +26,4 @@ Key idea: `imshow`/`pcolormesh` renders the grid; `colorbar` + a units label com
 - `correct`: `imshow`/`pcolormesh` **and** a `colorbar` **and** a units/label.
 - `partial`: image shown but no colorbar, or colorbar with no label/units.
 - `wrong`: can't produce the image.
+**Anchor (Constitution III):** code assembled only after the full snippet (or `imshow`+`colorbar` named outright) was shown scores `wrong`, depth 2 — comprehension questions after a reveal are teaching, not assessment.

@@ -18,5 +18,6 @@ In **2–3 sentences**: why is there a volcano at Axial Seamount, and why did OO
 - `correct`: connects spreading/magma → volcanism **and** gives an OOI rationale (active/frequent eruptions / real-time monitoring).
 - `partial`: only one half (the geology *or* the monitoring motive).
 - `wrong`: neither.
+**Anchor (Constitution III):** any half (geology / OOI rationale) you supplied before the student said it was revealed and cannot count toward `correct` or `partial`.
 
 *Note (build T002): step 2 is conceptual; default is to ride on triage with this one retrieval probe rather than a separate hands-on probe.*
