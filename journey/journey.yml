@@ -85,9 +85,9 @@ slice:
       readings: [lab1]
       data: [axial_tmpsf_2015-01.nc]
       probes: [p04_xarray_inspect]
-      capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable."
+      capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable — then DO something with it: select one sensor (or slice a one-day time window) and report the resulting shape plus a couple of temperature values."
       gate:
-        must: "Capstone done — opened the dataset and reported its dims/coords/variables (p04 not `wrong`)."
+        must: "Capstone done — opened the dataset, reported its dims/coords/variables, AND performed a selection or time-slice and reported the resulting shape (p04 not `wrong`)."
         unlocks: 4
 
     - n: 4

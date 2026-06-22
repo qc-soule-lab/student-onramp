@@ -17,6 +17,7 @@ and resuming is itself something we're testing (see step 6).
 ## 1. Setup (~15 min, JupyterLab terminal)
 
 ```bash
+cd ~                                    # clone into your home folder, not wherever you happen to be
 git clone -b 001-coding-onramp-v1 https://github.com/qc-soule-lab/student-onramp.git
 cd student-onramp
 uv sync

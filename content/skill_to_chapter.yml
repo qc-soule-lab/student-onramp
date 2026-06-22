@@ -33,10 +33,14 @@ chapters:
     assignment: src/assignments/numpy_matplotlib.ipynb
     also: [src/lectures/basic_scipy/more_matplotlib.ipynb]
   xarray_intro:
-    path: src/lectures/xarray/xarray_intro.md
-    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/xarray/xarray_intro.md
+    # xarray_intro.md is only a short outline page (Tori feedback) — point students at the
+    # substantive lecture xarray.ipynb instead. ⚠ that notebook's multidimensional section
+    # pulls a Columbia/LDEO download that currently 403s — skip that section; our step-3
+    # capstone uses the locally staged data/axial_tmpsf_2015-01.nc, not the LDEO file.
+    path: src/lectures/xarray/xarray.ipynb
+    url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/xarray/xarray.ipynb
     assignment: src/assignments/basic_xarray.ipynb
-    also: [src/lectures/xarray/xarray.ipynb]
+    also: [src/lectures/xarray/xarray_intro.md, src/lectures/xarray/xarray-part2.ipynb]
   pandas_intro:
     path: src/lectures/pandas/pandas_intro.md
     url: https://github.com/qc-soule-lab/earth-env-data-science-book/blob/master/src/lectures/pandas/pandas_intro.md

@@ -13,7 +13,9 @@ dependencies = [
     "matplotlib",
     "xarray",
     "netcdf4",
-    "pyarrow",  # Step 4 capstone reads the BOTPT parquet
+    "pyarrow",    # Step 4 capstone reads the BOTPT parquet
+    "ipykernel",  # register the project venv as a JupyterLab kernel — else notebooks run on the
+                  # default python3 kernel which lacks the slice deps (Tori: module-not-found / kernel hang)
 ]
 
 [dependency-groups]
