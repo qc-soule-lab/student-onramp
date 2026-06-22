@@ -18,7 +18,7 @@ Students run this on **Sonnet** (Standard seats); it is authored on Opus. Theref
 
 ### II. Student Privacy
 
-A student's assessment results, skill gaps, and personalized plan are **sensitive and stay local to their own clone** — generated artifacts (`journey_plan.md`, `progress.md`, profiles) are gitignored and never committed to the shared repo. No student's results are shared without their consent.
+A student's assessment results, skill gaps, personalized plan, and captured **misconceptions** are **sensitive and stay local to their own clone** — generated artifacts (`journey_plan.md`, `progress.md`, `feedback.md`, `misconceptions.md`, profiles) are gitignored and never committed to the shared repo. No student's results are shared without their consent. Misconception notes (the actual wrong answers — invaluable for evolving the curriculum) follow the same rule: captured locally, shared only with consent, and aggregated **anonymously** into `validation/misconception_ledger.md`.
 
 ### III. Honest, Welcoming Assessment
 

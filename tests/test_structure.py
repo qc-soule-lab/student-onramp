@@ -164,3 +164,17 @@ def test_pending_sources_resolved(readings_text):
     assert all(k in sourced for k in PENDING_READINGS), (
         f"still unsourced: {sorted(PENDING_READINGS - sourced)}"
     )
+
+
+# --- privacy + templates: generated student files stay local --------------
+
+def test_local_student_files_gitignored():
+    """Constitution II — every generated per-student file must be gitignored."""
+    gi = (ROOT / ".gitignore").read_text()
+    for f in ("journey_plan.md", "progress.md", "feedback.md", "misconceptions.md"):
+        assert f in gi, f"{f} must be gitignored (Constitution II — student data stays local)"
+
+
+def test_generated_artifact_templates_exist():
+    for t in ("journey_plan", "progress", "feedback", "misconceptions"):
+        assert (ROOT / "templates" / f"{t}.template.md").exists(), f"missing template: {t}.template.md"
