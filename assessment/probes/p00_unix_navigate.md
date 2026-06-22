@@ -19,7 +19,7 @@ file sizes — the shell is how you find and inspect the data before any code to
 
 ## Hint ladder
 - **R1:** Which command moves you into a directory? Which one lists what's inside it?
-- **R2:** `cd ~/student-onramp/data` moves in; `ls` lists files; add `-lh` (`ls -lh`) to see sizes in KB/MB.
+- **R2:** You need three moves — change into the directory, list what's there, and show file sizes. The first two are the most basic shell commands (first section of the intro_to_unix chapter); the size comes from a flag on the listing command. What are they called?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)

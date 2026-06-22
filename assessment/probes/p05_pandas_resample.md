@@ -14,7 +14,7 @@ You load `data/axial_botpt_2015-01.parquet` (`df = pd.read_parquet(...)`) — a 
 
 ## Hint ladder
 - **R1:** `.resample()` acts on a datetime index — what frequency string is hourly? daily? And if you average to daily, what happens to a 12-hour wiggle?
-- **R2:** `df['bp'].resample('1h').mean()`. To reveal a ~12 h cycle, plot a few days hourly and look for two highs/lows per day — that's a tide. `'1D'` erases it.
+- **R2:** pandas has a method that re-bins a datetime-indexed series to a new frequency (you give it a frequency string — hourly vs daily — then aggregate, e.g. a mean). To *see* a ~12 h wiggle you must keep sub-daily resolution and plot a few days; averaging to daily erases it. What's the method, and which frequency keeps the tide visible?
 - **R3 (reveal):** the full key above, naming the **M2** tide.
 
 ## Scoring (→ rubric §3)

@@ -24,7 +24,7 @@ doesn't resolve from here — fix your location or the path; tab-completion avoi
 
 ## Hint ladder
 - **R1:** The shell can't find a file you know exists. Given that commands run relative to *where you currently are*, what's the most likely reason?
-- **R2:** It's looking in your current directory. Check `pwd` and `ls` to see where you are and what's here; the file is probably in another directory — `cd` there, or give `cat` the full/relative path.
+- **R2:** Commands look for files relative to *where you currently are*, so the file probably isn't gone — you're just not where it is. Which two commands tell you where you are and what's around you? Once you've oriented, how do you move to the right directory (or point the command at the full path)?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)

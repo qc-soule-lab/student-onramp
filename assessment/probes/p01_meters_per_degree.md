@@ -13,7 +13,7 @@ Axial Seamount is near **46°N, 130°W**.
 
 ## Hint ladder (walk one rung at a time — never skip to R3)
 - **R1 (guiding question):** Earth's circumference is ~40,000 km. How many degrees take you all the way around? What does that make one degree?
-- **R2 (hint):** Latitude lines stay parallel, but longitude lines meet at the poles. As you move toward a pole, do they get closer or farther apart? The scaling factor is `cos(latitude)`.
+- **R2 (hint):** Latitude lines stay parallel (so a degree of latitude is ~constant length), but meridians converge toward the poles — so a degree of longitude shrinks as you go north. One trig function captures "full length at the equator, zero at the pole" — which one scales the longitude distance?
 - **R3 (reveal):** 1° lat = 40000/360 ≈ **111 km**. 1° lon at 46°N = 111 × cos(46°) ≈ **77 km** → shorter.
 
 ## Scoring (→ rubric §3)

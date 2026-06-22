@@ -11,7 +11,7 @@ In **2–3 sentences**: why is there a volcano at Axial Seamount, and why did OO
 
 ## Hint ladder
 - **R1:** What kind of plate boundary is the Juan de Fuca ridge, and what happens to magma at a spreading center?
-- **R2:** Spreading → magma rises → volcanism; Axial also erupts every few years. Why would scientists want live wires on a volcano that active?
+- **R2:** You named the boundary — now connect it: what does a spreading center do to magma, and so why a volcano right here? Then, separately: why wire *this* volcano with permanent cabled sensors instead of visiting it by ship once a year?
 - **R3 (reveal):** the key answer above.
 
 ## Scoring (→ rubric §3)

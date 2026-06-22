@@ -18,7 +18,7 @@ loading it); `cat` prints the whole thing. For a big data file, reach for `head`
 
 ## Hint ladder
 - **R1:** Which command prints a file's contents to the screen? Is there one that shows only the first few lines?
-- **R2:** `cat file` dumps the whole file; `head file` (or `head -n 3 file`) shows just the top — use `head` for a big CSV so you don't flood the terminal.
+- **R2:** Two commands print a file: one dumps the whole thing, the other shows only the top (and takes a flag to cap the number of lines). For a big CSV you want the top-only one so you don't flood the terminal. What are they named?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)
