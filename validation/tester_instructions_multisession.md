@@ -55,7 +55,7 @@ no goodbye, even though it feels rude. That's the test.
 **Wait at least one day.**
 
 **Sitting 2 — resume, then quit mid-step.** Open a terminal, `cd student-onramp`, run
-`claude`, type `continue`. *Before you scroll on, jot down:* did it greet you and say exactly
+`claude`, type `resume`. *Before you scroll on, jot down:* did it greet you and say exactly
 where you left off? Did it resume at the right question — **without re-asking anything you
 already answered**? Then keep working normally. Once you're in the middle of a course step —
 ideally after it's taught you something but **before** you've done that step's final task —

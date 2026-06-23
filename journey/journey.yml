@@ -33,11 +33,12 @@ slice:
       coding_skills: [unix_basics, vi_basics]
       chapters: [unix_basics]    # unix from the book; vi has no book chapter — sourced as a reading
       readings: [vi_ref]         # Wikibooks "Learning the vi Editor" (CC BY-SA 4.0) — see readings.md
+      warmup: shell_warmup       # content/shell_warmup.md — guided terminal practice (NOT graded) before the capstone
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
       probes: [p00_unix_navigate, p00c_shell_peek, p00d_read_error, p00b_vi_edit]
-      capstone: "From the JupyterLab terminal: cd to the data dir, ls the staged grid, and open plate_boundary.csv in vi to read its header — then exit cleanly."
+      capstone: "From the JupyterLab terminal: navigate to the data dir using tab-completion, ls -lh the staged grid, peek at plate_boundary.csv's header with head, then open it in vi, read the header, and exit cleanly without saving."
       gate:
-        must: "Capstone done — located the staged .nc grid via the shell AND opened a file in vi and exited cleanly (p00 not `wrong`; p00b not `wrong`)."
+        must: "Capstone done — judged on the demonstration itself, NOT the pre-teaching probe scores: the student navigated to the data dir, listed the staged grid, peeked at a file with head, and opened a file in vi and exited cleanly. (Probe scores are the pre-teaching baseline; the capstone is the post-teaching check.)"
         unlocks: 1
 
     - n: 1
@@ -51,7 +52,8 @@ slice:
       readings: [lab2]
       enrichment: [geomapapp]    # OPTIONAL no-code visual primer (same GMRT data); never gating
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
-      probes: [p01_meters_per_degree, p02_matplotlib_bathy]
+      note: "Three chapters here (JupyterLab, Python, numpy/matplotlib) — verify each with its own probe (run-a-cell, Python indexing, the plot), not only the final plot. The capstone also needs axis-limiting (xlim/ylim or imshow extent=) and the boundary overlay, which the linked chapters don't cover deeply — teach those in one line at the capstone."
+      probes: [p01_meters_per_degree, p02a_jupyter_basics, p02b_python_fundamentals, p02_matplotlib_bathy]
       capstone: "Plot Axial's location + bathymetry from the staged grid, boundary overlaid. (Heads-up: plate_boundary.csv spans the whole NE Pacific — limit your axes to the grid's extent.)"
       gate:
         must: "Capstone done — bathymetry image produced WITH a colorbar; meters-per-degree understood (p01/p02 not `wrong`)."
@@ -66,6 +68,7 @@ slice:
       coding_skills: []          # conceptual — Socratic Q&A + light reading (Constitution VI)
       chapters: []
       readings: [lab3, lab1]
+      note: "Before the capstone, explicitly CONTRAST the two magma sources — decompression melting (plate spreading lowers pressure → mantle melts) vs a hotspot/thermal plume (extra heat from below). Both make magma but by different causes; students conflate them. Lay them side by side, then connect both to Axial's frequent eruptions."
       probes: [p03_why_axial]
       # capstone deliberately goes one notch past p03 (same key concepts, applied
       # framing) — a Proficient student must not get the probe verbatim again (P4 run defect D1)
@@ -84,10 +87,11 @@ slice:
       chapters: [xarray_intro]
       readings: [lab1]
       data: [axial_tmpsf_2015-01.nc]
+      note: "Frame xarray as 'labeled data' — a grid that knows its axis names (time, sensor); preview dims/coords/data_vars gently before the capstone so it doesn't land cold."
       probes: [p04_xarray_inspect]
-      capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable."
+      capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable — then DO something with it: select one sensor (or slice a one-day time window) and report the resulting shape plus a couple of temperature values."
       gate:
-        must: "Capstone done — opened the dataset and reported its dims/coords/variables (p04 not `wrong`)."
+        must: "Capstone done — opened the dataset, reported its dims/coords/variables, AND performed a selection or time-slice and reported the resulting shape (p04 not `wrong`)."
         unlocks: 4
 
     - n: 4
@@ -100,6 +104,7 @@ slice:
       chapters: [pandas_intro, pandas_basics]
       readings: [lab4, tidal_nugget]
       data: [axial_botpt_2015-01.parquet]
+      note: "pd.read_parquet(path) loads the file into a DataFrame just like pd.read_csv — same DataFrame, datetime index already set; teach it in one line at the capstone."
       probes: [p05_pandas_resample]
       capstone: "Load data/axial_botpt_2015-01.parquet, resample bottom_pressure_psi to hourly, and reveal the M2 (~12.4 h) tidal signal; describe it."
       gate:

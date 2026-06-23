@@ -1,6 +1,6 @@
 *AI-generated draft (Claude, Anthropic) — for review.*
 
-# Probe p02 — show the bathymetry  (coding · step 1 · skills: jupyter_basics, python_fundamentals, matplotlib_plot)
+# Probe p02 — show the bathymetry  (coding · step 1 · skills: matplotlib_plot)
 
 ## Prompt (show to student)
 You've loaded a 2-D NumPy array `depth` (rows = latitude, columns = longitude) of seafloor depths.
@@ -19,7 +19,7 @@ Key idea: `imshow`/`pcolormesh` renders the grid; `colorbar` + a units label com
 
 ## Hint ladder
 - **R1:** What matplotlib function turns a 2-D array into an image? And what adds the scale bar on the side?
-- **R2:** `plt.imshow(array)` draws the grid; `plt.colorbar()` adds the scale; pass `label=` to say what the colors mean.
+- **R2:** matplotlib has one function that renders a 2-D array as an image, and a separate call that adds the scale strip beside it (give it a label so the reader knows what the colors mean). Both are in the numpy_and_matplotlib chapter — what are they?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)

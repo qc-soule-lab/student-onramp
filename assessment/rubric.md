@@ -16,7 +16,7 @@ Each probe is scored on its own key:
 
 ## 2. Hint-ladder depth (Constitution VI — walked-to-answer ≠ knew-it)
 
-Every probe ships a 3-rung ladder: **R1 guiding question → R2 concrete hint → R3 worked reveal.** Record the deepest rung used:
+Every probe ships a 3-rung ladder: **R1 orienting question → R2 conceptual nudge (names the idea / where to look — *not* the syntax, number, or function name) → R3 worked reveal.** The middle rung must make the student *retrieve*, not merely recognize. Record the deepest rung used:
 
 | Rung reached | Depth |
 |---|---|

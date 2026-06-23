@@ -17,7 +17,7 @@ Key idea: `open_dataset` returns a labeled `Dataset`; displaying it (or `.dims/.
 
 ## Hint ladder
 - **R1:** Which library opens NetCDF and gives you *labeled* dimensions? What's the function to open a dataset?
-- **R2:** `xr.open_dataset(path)` → a Dataset. Just display it (or use `.dims`, `.coords`, `.data_vars`); grab a variable with `ds['varname']`.
+- **R2:** NetCDF is labeled, multi-dimensional data — the library built for it is xarray (not pandas). It has one function to open a dataset, and the object it returns shows its dimensions, coordinates, and variables when you display it. What's the open function, and how do you pull out one variable?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)
@@ -25,3 +25,5 @@ Key idea: `open_dataset` returns a labeled `Dataset`; displaying it (or `.dims/.
 - `partial`: opens the file but unsure how to inspect or select.
 - `wrong`: can't open/inspect.
 **Anchor (Constitution III):** `open_dataset` or the dims/coords/data_vars pattern named only after you spelled it out = revealed → that part scores as after-reveal (`wrong`), depth 2.
+
+**Intro-tool fast-path:** xarray is taught *after* the assessment — if the student says they've **never used xarray**, record **Novice** (full scaffold) and skip the ladder; only run the task + ladder if they've used it before.

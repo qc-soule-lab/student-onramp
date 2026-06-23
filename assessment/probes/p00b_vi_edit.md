@@ -22,8 +22,7 @@ mode to type; **`Esc`** returns to normal mode; `:q` quits, `:q!` quits without 
 
 ## Hint ladder
 - **R1:** How do you open a file in vi from the shell — and once inside, how do you get back out?
-- **R2:** `vi <file>` opens it. vi opens in command mode; press `Esc` to be sure you're there,
-  then type `:q` to quit, `:q!` to quit discarding edits, or `:wq` to save and quit.
+- **R2:** One command opens a file in vi. The catch is *leaving*: vi starts in command mode (keystrokes are commands, not text), and the quits are colon-commands — one quits normally, one quits throwing away changes, one saves first. The `vi_ref` reading lists the survival set — which keys?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)

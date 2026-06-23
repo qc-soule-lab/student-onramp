@@ -3,14 +3,15 @@
 # Probe p00 — reach the data  (coding · step 0 · skills: unix_basics)
 
 ## Prompt (show to student)
-The staged bathymetry grid lives in `~/data/`. From the JupyterLab **terminal**, show the
+The staged bathymetry grid lives in the `data/` folder of your `student-onramp` clone
+(`~/student-onramp/data/`). From the JupyterLab **terminal**, show the
 commands you'd use to: (1) move into that directory, (2) confirm the file
 `axial_bathymetry_gmrt.nc` is there, and (3) see how big it is.
 
 ## Answer key
 ```bash
-cd ~/data            # move into the data directory
-ls -lh               # list contents with human-readable sizes (or: ls -lh axial_bathymetry_gmrt.nc)
+cd ~/student-onramp/data   # move into the data directory
+ls -lh                     # list contents with human-readable sizes (or: ls -lh axial_bathymetry_gmrt.nc)
 pwd                  # (optional) confirm where you are
 ```
 Key idea: `cd` changes directory, `ls` lists what's there, and `-lh` shows human-readable
@@ -18,7 +19,7 @@ file sizes — the shell is how you find and inspect the data before any code to
 
 ## Hint ladder
 - **R1:** Which command moves you into a directory? Which one lists what's inside it?
-- **R2:** `cd ~/data` moves in; `ls` lists files; add `-lh` (`ls -lh`) to see sizes in KB/MB.
+- **R2:** You need three moves — change into the directory, list what's there, and show file sizes. The first two are the most basic shell commands (first section of the intro_to_unix chapter); the size comes from a flag on the listing command. What are they called?
 - **R3 (reveal):** the snippet above.
 
 ## Scoring (→ rubric §3)
