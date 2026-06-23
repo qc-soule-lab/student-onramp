@@ -1,0 +1,34 @@
+*AI-generated draft (Claude, Anthropic) — for review.*
+
+# Probe p00d — read a shell error and recover  (coding · step 0 · skills: unix_basics)
+
+## Prompt (show to student)
+You run `cat plate_boundary.csv` and the terminal answers:
+```
+cat: plate_boundary.csv: No such file or directory
+```
+You know the file exists in the project. **What does this error mean, and what's your next move?**
+
+## Answer key
+The shell looked for that name **in your current directory** and didn't find it — almost always
+because you're in the *wrong directory* (or mistyped the name), **not** because the file is gone.
+Recover by orienting and pointing at the right place:
+```bash
+pwd                       # where am I right now?
+ls                        # what's actually in this directory?
+cd ~/student-onramp/data  # move to where the file lives (or give the full/relative path to cat)
+cat ~/student-onramp/data/plate_boundary.csv
+```
+Key idea: commands run **relative to where you are**. "No such file or directory" means the path
+doesn't resolve from here — fix your location or the path; tab-completion avoids typos.
+
+## Hint ladder
+- **R1:** The shell can't find a file you know exists. Given that commands run relative to *where you currently are*, what's the most likely reason?
+- **R2:** Commands look for files relative to *where you currently are*, so the file probably isn't gone — you're just not where it is. Which two commands tell you where you are and what's around you? Once you've oriented, how do you move to the right directory (or point the command at the full path)?
+- **R3 (reveal):** the snippet above.
+
+## Scoring (→ rubric §3)
+- `correct`: reads it as a *wrong-directory / wrong-path* problem (not "file deleted/corrupt") **and** recovers via `pwd`/`ls`/`cd` or the correct path.
+- `partial`: right idea but vague on recovery, or only fixes it by trial-and-error guessing.
+- `wrong`: misreads the error (thinks the file is gone/broken) or is stuck.
+**Anchor (Constitution III):** if you told them it's a wrong-directory/path problem before they said it, that was the reveal — a restated diagnosis scores `wrong`, depth 2.

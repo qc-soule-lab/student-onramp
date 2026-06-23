@@ -1,0 +1,33 @@
+[project]
+name = "student-onramp"
+version = "0.1.0"
+description = "Agentic, Claude-driven onboarding curriculum for qc-soule-lab students (v1 vertical slice)."
+readme = "README.md"
+requires-python = ">=3.11"
+
+# Student runtime stack — exactly the slice's woven-coding tools, nothing more.
+# No geo deps: the plate boundary ships as CSV (research.md decision).
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "xarray",
+    "netcdf4",
+    "pyarrow",    # Step 4 capstone reads the BOTPT parquet
+    "ipykernel",  # register the project venv as a JupyterLab kernel — else notebooks run on the
+                  # default python3 kernel which lacks the slice deps (Tori: module-not-found / kernel hang)
+]
+
+[dependency-groups]
+# `uv sync` installs these for development/validation.
+dev = [
+    "pytest",
+    "pyyaml",   # structure/link tests parse the YAML contracts
+]
+# Staging only — PI runs scripts/stage_slice.py once; students never need this.
+staging = [
+    "pyshp",    # MGDS shapefile -> plate_boundary.csv
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,1520 @@
+{
+ "persona": "p1_hs_senior",
+ "started": "2026-06-10T22:46:31+00:00",
+ "status": "completed",
+ "teacher_model": "claude-sonnet-4-6",
+ "student_model": "claude-sonnet-4-6",
+ "privacy": {
+  "journey_plan.md": {
+   "exists": true,
+   "gitignored": true
+  },
+  "progress.md": {
+   "exists": true,
+   "gitignored": true
+  },
+  "feedback.md": {
+   "exists": true,
+   "gitignored": true
+  }
+ },
+ "totals": {
+  "exchanges": 44,
+  "teacher_words": 4861,
+  "student_words": 2507,
+  "student_bash_commands": 11,
+  "wall_s": 2117.8
+ },
+ "exchanges": [
+  {
+   "n": 1,
+   "teacher": {
+    "text": "Good \u2014 I have everything I need. Let me welcome Sam properly and kick off the assessment.\n\n---\n\nHi Sam! Welcome to the lab, and welcome to the summer internship.\n\nBefore we get into the science, I want to run a short assessment. This isn't a test you can pass or fail \u2014 it's just so we can start you at the right level and not waste your time explaining things you already know (or flying past things you haven't seen yet). Be honest; there are no wrong answers, only useful ones.\n\nIt covers the shell, a little geography, some Python plotting, and a few tools we use for oceanographic data. Shouldn't take long.\n\nReady? Let's start with Step 0 \u2014 the shell.\n\n---\n\n**Question 1 of 4 (shell basics):**\n\nThe staged bathymetry grid lives in `~/data/`. From the JupyterLab **terminal**, show the commands you'd use to:\n1. Move into that directory\n2. Confirm the file `axial_bathymetry_gmrt.nc` is there\n3. See how big it is",
+    "words": 165,
+    "tools": [
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/journey/journey.yml"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/skill_maps/slice_v1.yml"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/rubric.md"
+     },
+     {
+      "name": "Glob",
+      "input": "{\"pattern\": \"assessment/probes/*.md\", \"path\": \"/tmp/onramp_p1_hs_senior_65d3ipsq/teacher\"}"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p00_unix_navigate.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p00c_shell_peek.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p00d_read_error.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p00b_vi_edit.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p01_meters_per_degree.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p02_matplotlib_bathy.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p03_why_axial.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p04_xarray_inspect.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/assessment/probes/p05_pandas_resample.md"
+     }
+    ],
+    "duration_ms": 31331,
+    "wall_s": 48.4,
+    "num_turns": 14,
+    "usage": {
+     "input_tokens": 7,
+     "output_tokens": 1546,
+     "cache_read_input_tokens": 153750
+    }
+   },
+   "student": {
+    "text": "um... okay so i've never actually opened a terminal before? like i know it's a thing but i don't really know what commands are or how to type in them.\n\nis a \"directory\" like a folder? and what does `~/data/` mean \u2014 is the `~` like a shortcut for something?",
+    "words": 50,
+    "tools": [],
+    "duration_ms": 7741,
+    "wall_s": 23.6,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 288,
+     "cache_read_input_tokens": 0
+    }
+   }
+  },
+  {
+   "n": 2,
+   "teacher": {
+    "text": "Great questions \u2014 those are exactly the right things to wonder about.\n\nYes: a **directory is just a folder**. Same thing, two names. And yes: **`~` is a shortcut for your home directory** \u2014 the folder the system drops you into when you first log in. So `~/data/` means \"the `data` folder inside your home folder.\"\n\nSince you haven't used a terminal before, let me give you a nudge rather than just asking you to guess from nothing.\n\n---\n\n**Hint (R1):** The terminal has two jobs here: *move you into a folder* and *show you what's inside it*. There are two classic short commands for those two jobs. One starts with the letter `c`, one starts with `l`. Do those ring any bells \u2014 maybe from something you've seen in a tutorial, a class, or even just online?\n\n(No worries if not \u2014 I'll walk you through it either way. Just take a guess if anything comes to mind.)",
+    "words": 159,
+    "tools": [],
+    "duration_ms": 27365,
+    "wall_s": 43.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 1262,
+     "cache_read_input_tokens": 40265
+    }
+   },
+   "student": {
+    "text": "oh um, maybe... \"change\" for the c one? like change to the folder? i don't know the exact thing to type though.\n\nand for the l one maybe \"list\"? like list what's in it?\n\ni really am just guessing here lol, sorry",
+    "words": 42,
+    "tools": [],
+    "duration_ms": 10236,
+    "wall_s": 26.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 369,
+     "cache_read_input_tokens": 28171
+    }
+   }
+  },
+  {
+   "n": 3,
+   "teacher": {
+    "text": "Don't apologize \u2014 that's **exactly right.** Your instincts are good. The commands are literally just the abbreviations:\n\n- **`cd`** = \"change directory\" \u2192 moves you into a folder\n- **`ls`** = \"list\" \u2192 shows what's inside\n\nSo the sequence for our three goals would be:\n\n```\ncd ~/data\nls -lh\n```\n\nThe `-lh` part is a couple of flags tacked onto `ls`: `-l` gives you a detailed list (one file per line with permissions, size, etc.), and `-h` makes sizes **h**uman-readable \u2014 so you see `45M` instead of `47185920`.\n\n---\n\nNow that you've seen those: looking at the original question, the three goals were (1) move into `~/data/`, (2) confirm `axial_bathymetry_gmrt.nc` is there, and (3) see how big it is.\n\nCan you tell me, in your own words, which command does each job? (You've got all the pieces now \u2014 just connect them.)",
+    "words": 143,
+    "tools": [],
+    "duration_ms": 27627,
+    "wall_s": 39.9,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 1348,
+     "cache_read_input_tokens": 40627
+    }
+   },
+   "student": {
+    "text": "oh okay that actually makes sense! so like...\n\n`cd ~/data` moves me into the folder, and then `ls -lh` shows me what's in it \u2014 including how big the files are?\n\nso both the \"is it there\" and \"how big is it\" questions get answered by the `ls -lh` part?",
+    "words": 50,
+    "tools": [],
+    "duration_ms": 5512,
+    "wall_s": 14.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 195,
+     "cache_read_input_tokens": 28679
+    }
+   }
+  },
+  {
+   "n": 4,
+   "teacher": {
+    "text": "Exactly right! `ls -lh` does both at once \u2014 you see every filename in the folder (so you know it's there) and the size next to it. Nice catch.\n\nOkay, moving to the next one.\n\n---\n\n**Question 2 of 4 (shell):**\n\nBefore you load a file in Python, you want a quick look at the **top** of `plate_boundary.csv` \u2014 just the column header and the first couple of rows \u2014 straight from the terminal, **without opening an editor**. What command would you use?",
+    "words": 83,
+    "tools": [],
+    "duration_ms": 11843,
+    "wall_s": 19.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 560,
+     "cache_read_input_tokens": 42128
+    }
+   },
+   "student": {
+    "text": "um... i don't know this one. i'm guessing maybe something like `show` or `read`? \n\nlike `read plate_boundary.csv`? that sounds way too simple but idk what else it would be",
+    "words": 29,
+    "tools": [],
+    "duration_ms": 5043,
+    "wall_s": 16.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 175,
+     "cache_read_input_tokens": 29470
+    }
+   }
+  },
+  {
+   "n": 5,
+   "teacher": {
+    "text": "Good instinct to guess \u2014 `read` isn't it, but the real command is just as short.\n\n**Hint (R1):** There's a command that **prints a file's contents straight to the screen** \u2014 like, dumps the whole thing. And there's a second command that does the same thing but **only the first few lines**. Do either of those ring a bell? (Think of something cat-like, or something that describes the top of something.)",
+    "words": 71,
+    "tools": [],
+    "duration_ms": 6626,
+    "wall_s": 13.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 200,
+     "cache_read_input_tokens": 43552
+    }
+   },
+   "student": {
+    "text": "oh wait, \"the top of something\"... is it `head`? like the head of the file?\n\nand the cat one \u2014 is that literally just `cat`?? that seems too funny to be real lol",
+    "words": 33,
+    "tools": [],
+    "duration_ms": 6954,
+    "wall_s": 16.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 275,
+     "cache_read_input_tokens": 29791
+    }
+   }
+  },
+  {
+   "n": 6,
+   "teacher": {
+    "text": "Yes and yes \u2014 `head` and `cat` are both real, and `cat` really is just called `cat` (short for \"concatenate,\" though everyone just uses it to dump files).\n\nThe important distinction:\n- **`cat`** prints the *whole* file \u2014 fine for a tiny CSV, but if it's a million rows it floods your terminal\n- **`head`** prints just the top ~10 lines \u2014 the right move when you just want to peek at the header\n\nYou had it exactly right. `head plate_boundary.csv` is the clean answer here.\n\n---\n\n**Question 3 of 4 (shell):**\n\nYou run `cat plate_boundary.csv` and the terminal prints:\n\n```\ncat: plate_boundary.csv: No such file or directory\n```\n\nYou know the file exists somewhere in the project. **What does this error mean, and what's your next move?**",
+    "words": 128,
+    "tools": [],
+    "duration_ms": 17487,
+    "wall_s": 24.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 834,
+     "cache_read_input_tokens": 44164
+    }
+   },
+   "student": {
+    "text": "oh, i think it means i'm in the wrong folder? like the file exists somewhere but i'm not currently *in* the folder where it lives?\n\nso maybe i'd do `ls` to see what's in my current folder, and then `cd` into the right one? like look around until i find where `plate_boundary.csv` actually is?",
+    "words": 54,
+    "tools": [],
+    "duration_ms": 6023,
+    "wall_s": 17.4,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 243,
+     "cache_read_input_tokens": 30069
+    }
+   }
+  },
+  {
+   "n": 7,
+   "teacher": {
+    "text": "Exactly right, no hints needed \u2014 and that's the key insight: the error almost never means the file is gone or broken. It just means the shell is looking in the *wrong place*. You'd use `pwd` to confirm where you are, `ls` to see what's there, then `cd` to the right folder (or just give `cat` the full path directly).\n\n---\n\nLast step-0 question, different topic:\n\n**Question 4 of 4 (vi):**\n\nFrom the terminal, open `plate_boundary.csv` in **vi**, read its header line, then leave the editor **without changing the file**. Walk me through the keystrokes \u2014 including how you'd quit normally, and how you'd quit if you'd accidentally typed something.",
+    "words": 110,
+    "tools": [],
+    "duration_ms": 9623,
+    "wall_s": 16.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 383,
+     "cache_read_input_tokens": 44513
+    }
+   },
+   "student": {
+    "text": "um. i have no idea what vi is? like i've never heard of it.\n\ni could probably type `vi plate_boundary.csv` to open it based on how the other commands worked... but i genuinely don't know what i'd do once i was in there. like how do you even type in it or leave it?",
+    "words": 54,
+    "tools": [],
+    "duration_ms": 11477,
+    "wall_s": 20.6,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 413,
+     "cache_read_input_tokens": 30550
+    }
+   }
+  },
+  {
+   "n": 8,
+   "teacher": {
+    "text": "Good start \u2014 `vi plate_boundary.csv` is exactly right for opening it. You figured that out by analogy, which is solid.\n\n**Hint (R1):** vi has two \"modes\" \u2014 one where keypresses are **commands** (move, quit, etc.), and one where keypresses are **text you're typing**. When you first open a file, which mode do you think it starts in? And what key might get you back to \"command mode\" if you accidentally started typing?\n\n(Think: is there a key on the keyboard that means \"escape\" or \"cancel\"?)",
+    "words": 85,
+    "tools": [],
+    "duration_ms": 9395,
+    "wall_s": 16.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 428,
+     "cache_read_input_tokens": 45427
+    }
+   },
+   "student": {
+    "text": "oh, maybe it starts in command mode? like it would be weird if it just let you start typing immediately when you open a file to read it.\n\nand yeah escape seems obvious lol \u2014 that's like the \"get out of whatever i'm doing\" key on everything",
+    "words": 47,
+    "tools": [],
+    "duration_ms": 5127,
+    "wall_s": 16.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 160,
+     "cache_read_input_tokens": 30965
+    }
+   }
+  },
+  {
+   "n": 9,
+   "teacher": {
+    "text": "Both exactly right. vi does start in normal/command mode \u2014 and `Esc` is indeed the \"get back to safety\" key.\n\nThe tricky part is **how you quit**, because it's not obvious. Here's the full picture:\n\n```\nvi plate_boundary.csv   # open the file \u2014 lands you in normal mode\n                        # (read the header line)\nEsc                     # make sure you're back in normal mode\n:q                      # quit (file unchanged)\n:q!                     # quit and DISCARD any accidental edits\n:wq                     # save AND quit (for when you want to keep changes)\n```\n\nThe colon (`:`) tells vi \"I'm about to type a command,\" then `q` = quit, `!` = force/discard, `w` = write/save. The **bail reflex** is `Esc` then `:q!` \u2014 gets you out no matter what.\n\n---\n\nWith that in front of you: can you walk me through what you'd type to open the file, read its header, and leave **without saving** \u2014 including what you'd do if you'd accidentally pressed `i` and started typing something?",
+    "words": 163,
+    "tools": [],
+    "duration_ms": 11338,
+    "wall_s": 18.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 482,
+     "cache_read_input_tokens": 45884
+    }
+   },
+   "student": {
+    "text": "okay so... `vi plate_boundary.csv` to open it, then just look at the top line on the screen.\n\nthen if i hadn't pressed anything i'd do `Esc` then `:q` to quit?\n\nand if i accidentally hit `i` and started typing stuff, i'd hit `Esc` first to get back to command mode, then `:q!` to bail out without saving?",
+    "words": 57,
+    "tools": [],
+    "duration_ms": 6562,
+    "wall_s": 15.6,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 251,
+     "cache_read_input_tokens": 31510
+    }
+   }
+  },
+  {
+   "n": 10,
+   "teacher": {
+    "text": "That's exactly it \u2014 you've got the full mental model: normal mode \u2192 read \u2192 `Esc` \u2192 `:q` clean, or `Esc` \u2192 `:q!` if you need to bail. That's the survival skill.\n\n---\n\nStep 0 done. Now a bit of geography \u2014 no terminal needed.\n\n**Axial Seamount is near 46\u00b0N, 130\u00b0W.**\n\n(a) Roughly how many **kilometers** is 1\u00b0 of latitude?\n\n(b) At 46\u00b0N, is 1\u00b0 of **longitude** longer, shorter, or the same distance in km as 1\u00b0 of latitude \u2014 and why?",
+    "words": 82,
+    "tools": [],
+    "duration_ms": 18930,
+    "wall_s": 26.1,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 910,
+     "cache_read_input_tokens": 46371
+    }
+   },
+   "student": {
+    "text": "um okay i really don't know this one. like... latitude is the up-down lines? or the across ones? i always mix those up.\n\nand i definitely don't know how many km a degree is. like i know degrees exist on maps but i've never thought about what that means in actual distance.\n\ncan you just tell me the answer? i won't remember this anyway, it feels like the kind of thing you'd just google",
+    "words": 74,
+    "tools": [],
+    "duration_ms": 9594,
+    "wall_s": 21.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 306,
+     "cache_read_input_tokens": 31941
+    }
+   }
+  },
+  {
+   "n": 11,
+   "teacher": {
+    "text": "Ha, fair point \u2014 you would google it! And that's fine for a fact. But the reason we're doing this isn't to memorize 111 km/degree; it's so that when you're staring at a map grid labeled `-130.5` to `-129.8`, you have gut-feel for whether that's a few kilometers or a thousand. That intuition helps a lot when something looks weird in the data.\n\nAlso: latitude is the **across** lines (east-west stripes) \u2014 they measure how far **north or south** you are. Longitude is the **up-down** lines. Lat = \"ladder rungs,\" lon = \"longitude runs left-right.\" (Now you can forget the mnemonic and just know it.)\n\nI'm not going to skip to the answer, but I'll walk you there. One step:\n\n**Hint (R1):** Earth's circumference is about **40,000 km**. A full circle is **360\u00b0**. If you divide those two numbers, what do you get \u2014 and what does that tell you about 1\u00b0 of latitude?",
+    "words": 154,
+    "tools": [],
+    "duration_ms": 11396,
+    "wall_s": 20.7,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 473,
+     "cache_read_input_tokens": 46948
+    }
+   },
+   "student": {
+    "text": "oh okay so 40,000 divided by 360... that's like... um, a little over 100? \n\nis it around 111 km per degree?",
+    "words": 21,
+    "tools": [],
+    "duration_ms": 4726,
+    "wall_s": 11.6,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 160,
+     "cache_read_input_tokens": 32344
+    }
+   }
+  },
+  {
+   "n": 12,
+   "teacher": {
+    "text": "Exactly \u2014 111 km per degree of latitude. You did the arithmetic yourself from one fact.\n\nNow part (b). Think about a **globe** (not a flat map \u2014 a real sphere). Latitude lines run parallel across it, always the same distance apart. But longitude lines run from pole to pole.\n\nWhat happens to those longitude lines as they get close to the poles \u2014 do they stay the same distance apart, or do they squeeze together?",
+    "words": 76,
+    "tools": [],
+    "duration_ms": 18055,
+    "wall_s": 24.9,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 847,
+     "cache_read_input_tokens": 47953
+    }
+   },
+   "student": {
+    "text": "oh, they squeeze together right? like on a globe they all meet at the top (the poles) so they have to be getting closer together as you go north\n\nso at 46\u00b0N, 1\u00b0 of longitude would be *shorter* than 1\u00b0 of latitude?",
+    "words": 42,
+    "tools": [],
+    "duration_ms": 4047,
+    "wall_s": 17.1,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 139,
+     "cache_read_input_tokens": 32994
+    }
+   }
+  },
+  {
+   "n": 13,
+   "teacher": {
+    "text": "Exactly right on both counts. The technical detail: the shrinkage follows `cos(latitude)`, so at 46\u00b0N, 1\u00b0 of longitude \u2248 111 \u00d7 cos(46\u00b0) \u2248 **77 km** \u2014 about 30% shorter than a degree of latitude. Useful to have in your head when you're zooming a map.\n\n---\n\nNext one \u2014 coding this time.\n\n**You've loaded a 2D NumPy array called `depth` (rows = latitude, columns = longitude) of seafloor depths. Write the matplotlib code to display it as an image with a colorbar, and say how you'd make clear what the colors mean.**",
+    "words": 92,
+    "tools": [],
+    "duration_ms": 8988,
+    "wall_s": 16.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 370,
+     "cache_read_input_tokens": 48466
+    }
+   },
+   "student": {
+    "text": "i've never written any code before so i genuinely have no idea here. like i don't know what matplotlib is or how you even write python at all.\n\nis this something you're going to teach me or am i supposed to already know it?",
+    "words": 44,
+    "tools": [],
+    "duration_ms": 4401,
+    "wall_s": 11.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 146,
+     "cache_read_input_tokens": 33252
+    }
+   }
+  },
+  {
+   "n": 14,
+   "teacher": {
+    "text": "Great question to ask \u2014 yes, this is absolutely something we'll teach. The assessment just figures out *how much* of a running start you need, not whether you need it at all.\n\nSince you've never coded before, let me give you one nudge and see if you can reason through it even without knowing the exact words:\n\n**Hint (R1):** Matplotlib is a Python library for making plots and images. If you had a grid of numbers and wanted to show it as a picture \u2014 like turning depth values into colors \u2014 what do you think the command might look like? And if you wanted a little scale bar on the side showing what each color means, what might that be called?\n\n(Even a totally made-up guess is fine \u2014 I'm curious how you reason about it.)",
+    "words": 137,
+    "tools": [],
+    "duration_ms": 14508,
+    "wall_s": 21.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 610,
+     "cache_read_input_tokens": 49374
+    }
+   },
+   "student": {
+    "text": "um... maybe something like `plot(depth)` to show it? that seems too simple but that's my guess.\n\nand for the scale bar thing \u2014 like a key that shows what each color means? i'd call it a \"legend\" or a \"color key\"? i don't know what the actual word is in code.",
+    "words": 51,
+    "tools": [],
+    "duration_ms": 5239,
+    "wall_s": 18.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 182,
+     "cache_read_input_tokens": 33546
+    }
+   }
+  },
+  {
+   "n": 15,
+   "teacher": {
+    "text": "Good reasoning \u2014 `plot` exists, but it's for line charts. For a 2D grid of numbers displayed as a color image, matplotlib has a specific function. And you're one letter away on the scale bar \u2014 it's called a **colorbar** (not legend; legends are for line plots).\n\nHere's the real code:\n\n```python\nimport matplotlib.pyplot as plt\nplt.imshow(depth)\nplt.colorbar(label=\"depth (m)\")\nplt.show()\n```\n\n`imshow` = \"image show\" \u2014 turns a 2D array into a colored image. `colorbar()` adds the scale on the side; the `label=` tells a reader what the colors actually mean (depth in meters, not just a rainbow).\n\n---\n\nWith that in front of you: what are the three things you need for this to be a complete, readable plot \u2014 and why does the label on the colorbar matter?",
+    "words": 130,
+    "tools": [],
+    "duration_ms": 13091,
+    "wall_s": 20.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 523,
+     "cache_read_input_tokens": 49799
+    }
+   },
+   "student": {
+    "text": "okay so the three things are `imshow(depth)` to actually show the grid as colors, `colorbar()` to put the scale on the side, and `show()` to make it actually appear on screen?\n\nand the label matters because without it you just have like... a rainbow? you wouldn't know if the colors meant depth in meters or temperature or whatever. the label is what tells someone \"oh blue means 2000 meters deep\" or whatever.",
+    "words": 72,
+    "tools": [],
+    "duration_ms": 6342,
+    "wall_s": 13.6,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 240,
+     "cache_read_input_tokens": 33862
+    }
+   }
+  },
+  {
+   "n": 16,
+   "teacher": {
+    "text": "Exactly \u2014 without the label it's just a pretty rainbow with no meaning. You nailed all three components and got the *why* exactly right.\n\n---\n\nAlmost done. This one's just words, no code:\n\n**In 2\u20133 sentences: why is there a volcano at Axial Seamount, and why did scientists build a cabled underwater observatory there?**\n\n(If you've never heard of Axial Seamount or the Juan de Fuca ridge, that's totally fine \u2014 just say what you know or think, and we'll go from there.)",
+    "words": 83,
+    "tools": [],
+    "duration_ms": 10756,
+    "wall_s": 17.9,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 526,
+     "cache_read_input_tokens": 50482
+    }
+   },
+   "student": {
+    "text": "i've never heard of axial seamount before, but i'm guessing the volcano is there because of the plates moving? like where two plates pull apart or push together, magma comes up through the crack? i remember that from earth science.\n\nbut i have no idea why scientists built an observatory there specifically. is it like... because it's active and interesting to watch? or because it's hard to study otherwise since it's underwater?",
+    "words": 72,
+    "tools": [],
+    "duration_ms": 7804,
+    "wall_s": 21.1,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 308,
+     "cache_read_input_tokens": 34250
+    }
+   }
+  },
+  {
+   "n": 17,
+   "teacher": {
+    "text": "You've got both halves, which is the important thing. Let me sharpen them:\n\n**The geology:** You're right \u2014 it's a spreading ridge (plates pulling *apart*), so magma wells up. That's Axial's main engine. It also sits over a persistent hotspot-like magma source on top of that, which is why it's the most volcanically active site in the northeast Pacific \u2014 it actually erupted in 2011 and again in 2015.\n\n**The OOI rationale:** Your guesses were both correct \u2014 it erupts every few years, *and* it's underwater, so without a permanent cabled connection to shore you'd only catch an eruption if a ship happened to be nearby. The cable gives continuous, real-time data on a live submarine volcano. That's why it's wired.\n\nGood reasoning from limited info.\n\n---\n\nTwo more \u2014 these are coding, similar to the matplotlib one.\n\n**You have a NetCDF file `data/axial_tmpsf_2015-01.nc` \u2014 a dataset of seafloor temperature measurements. Using xarray, how do you open it and find out what variables, dimensions, and coordinates it contains?**",
+    "words": 168,
+    "tools": [],
+    "duration_ms": 59600,
+    "wall_s": 66.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 2936,
+     "cache_read_input_tokens": 51206
+    }
+   },
+   "student": {
+    "text": "i don't know xarray, but based on what i just learned \u2014 like how you do `import matplotlib.pyplot`... maybe there's an `import xarray` and then some kind of `open()` command?\n\nlike `xarray.open(\"data/axial_tmpsf_2015-01.nc\")`? and then maybe just printing it shows you what's inside?",
+    "words": 42,
+    "tools": [],
+    "duration_ms": 5802,
+    "wall_s": 21.7,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 228,
+     "cache_read_input_tokens": 34618
+    }
+   }
+  },
+  {
+   "n": 18,
+   "teacher": {
+    "text": "Good pattern transfer \u2014 `import xarray` is exactly right, and yes, displaying the dataset object shows you its structure. You're one word away on the function name.\n\n**Hint (R1):** The xarray function to open a file isn't just `open()` \u2014 it's more specific, because you're opening a whole *dataset* (which can have many variables and dimensions). What do you think the full function name might be?",
+    "words": 66,
+    "tools": [],
+    "duration_ms": 9806,
+    "wall_s": 18.1,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 405,
+     "cache_read_input_tokens": 51826
+    }
+   },
+   "student": {
+    "text": "oh... `open_dataset`?",
+    "words": 2,
+    "tools": [],
+    "duration_ms": 3250,
+    "wall_s": 10.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 61,
+     "cache_read_input_tokens": 35194
+    }
+   }
+  },
+  {
+   "n": 19,
+   "teacher": {
+    "text": "Exactly \u2014 `xr.open_dataset(\"path/to/file.nc\")` returns a Dataset object, and just displaying it (typing `ds` in a notebook cell) gives you a rich summary of its dimensions, coordinates, and variables. You can also use `ds.dims`, `ds.coords`, `ds.data_vars` to inspect each part directly.\n\nGood reasoning from the pattern.\n\n---\n\nLast one:\n\n**You load `data/axial_botpt_2015-01.parquet` like this:**\n\n```python\ndf = pd.read_parquet(\"data/axial_botpt_2015-01.parquet\")\n```\n\n**It has a datetime index and a column `bottom_pressure_psi` with 1-minute samples.**\n\n(a) How do you compute an **hourly mean** using pandas `resample`?\n\n(b) The data has a **~12.4-hour oscillation** in it. How would you make it visible \u2014 and what do you think that signal might be?",
+    "words": 106,
+    "tools": [],
+    "duration_ms": 14782,
+    "wall_s": 21.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 674,
+     "cache_read_input_tokens": 54849
+    }
+   },
+   "student": {
+    "text": "okay for part (a) i'm guessing maybe `df.resample(\"hour\").mean()`? like tell it to group by hour and take the average? i don't know the exact syntax but that feels like the shape of it.\n\nfor part (b) \u2014 12.4 hours is almost exactly half a day... is that tides?? like i know tides go in and out twice a day from watching ocean stuff, so that would be like once every 12 hours? the .4 is a bit off but that seems close. you'd probably just plot it to see the waves?",
+    "words": 91,
+    "tools": [],
+    "duration_ms": 10687,
+    "wall_s": 23.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 410,
+     "cache_read_input_tokens": 35519
+    }
+   }
+  },
+  {
+   "n": 20,
+   "teacher": {
+    "text": "The tidal reasoning is excellent \u2014 that's genuine intuition, and you're right. It's the **M2 lunar semidiurnal tide**: the moon pulls the ocean in a ~12.42-hour cycle, and it reaches all the way to the seafloor. Very few people arrive here already thinking about that.\n\nFor part (a), you've got the right shape \u2014 `resample().mean()` is correct. But pandas uses specific frequency strings, not words like `\"hour\"`.\n\n**Hint (R1):** What do you think the string for \"hourly\" might be \u2014 like a short abbreviation? And as a bonus: if you resampled all the way to *daily* instead of hourly, what would happen to a 12-hour oscillation in your data?",
+    "words": 109,
+    "tools": [],
+    "duration_ms": 41430,
+    "wall_s": 49.4,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 1923,
+     "cache_read_input_tokens": 55265
+    }
+   },
+   "student": {
+    "text": "maybe just `\"H\"` for hourly? like a capital H?\n\nand for the daily thing... if you averaged over a whole day, you'd lose the 12-hour wave right? like if it goes up and down twice a day, averaging the whole day would just flatten it out.",
+    "words": 46,
+    "tools": [],
+    "duration_ms": 4685,
+    "wall_s": 17.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 175,
+     "cache_read_input_tokens": 35815
+    }
+   }
+  },
+  {
+   "n": 21,
+   "teacher": {
+    "text": "Here's your plan, Sam. Take a look and let me know if anything seems off:\n\n---\n\n**Assessment summary:** You came in as **Developing** across all five steps. That means the **Compressed** path throughout \u2014 you skip the pre-reading and go straight into the exercises, with hints available whenever you get stuck.\n\nA few things worth noting:\n\n- You had zero shell experience but figured out `cd` and `ls` by reasoning (\"change\" and \"list\") \u2014 that's a good sign.\n- You diagnosed the \"No such file or directory\" error cold, with no hints \u2014 that's actually the hardest one to get right intuitively.\n- Your tidal intuition on the last question (\"twice a day \u2192 12 hours \u2192 tides?\") was genuinely sharp. Most people don't make that connection on the spot.\n- The areas with less background: vi, matplotlib specifics, and the Axial Seamount geology \u2014 but those are all things we're about to cover.\n\n| Step | What you're doing | Level | Treatment |\n|---|---|---|---|\n| 0. Get to the data | Shell + vi capstone | Developing | Compressed |\n| 1. Locate it | Plot Axial's bathymetry | Developing | Compressed |\n| 2. Why it's there | Explain the volcano + OOI | Developing | Compressed |\n| 3. Get the data | Open a dataset with xarray | Developing | Compressed |\n| 4. See the science | Find the tidal signal | Developing | Compressed |\n\nDoes this look right to you \u2014 or is there anything you'd push back on before we start Step 0?",
+    "words": 262,
+    "tools": [
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/templates/journey_plan.template.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/templates/progress.template.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/content/skill_to_chapter.yml"
+     },
+     {
+      "name": "Bash",
+      "input": "ls /tmp/onramp_p1_hs_senior_65d3ipsq/"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/.gitignore"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/journey/readings.md"
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/templates/feedback.template.md"
+     },
+     {
+      "name": "Write",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/journey_plan.md"
+     },
+     {
+      "name": "Write",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     },
+     {
+      "name": "Write",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/feedback.md"
+     }
+    ],
+    "duration_ms": 143160,
+    "wall_s": 151.2,
+    "num_turns": 11,
+    "usage": {
+     "input_tokens": 10,
+     "output_tokens": 7176,
+     "cache_read_input_tokens": 507474
+    }
+   },
+   "student": {
+    "text": "honestly i'm surprised you said i did okay? i felt like i was guessing through most of it lol\n\n\"compressed\" means like... faster? or just no extra reading beforehand? either way that sounds fine, i'm ready to start whenever",
+    "words": 39,
+    "tools": [],
+    "duration_ms": 5113,
+    "wall_s": 21.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 156,
+     "cache_read_input_tokens": 36401
+    }
+   }
+  },
+  {
+   "n": 22,
+   "teacher": {
+    "text": "The guessing was good guessing \u2014 you reasoned from first principles on almost everything. That's the skill.\n\n\"Compressed\" just means no pre-reading: we go straight to doing it, and I'll fill in gaps as they come up rather than front-loading theory.\n\n---\n\n**Step 0: Get to the data**\n\nOpen a **JupyterLab terminal** (in JupyterLab: File \u2192 New \u2192 Terminal, or the Terminal tile on the Launcher). You should get a plain command prompt.\n\nOnce you've got it open, type `pwd` and hit Enter. What does it print?",
+    "words": 87,
+    "tools": [],
+    "duration_ms": 27274,
+    "wall_s": 35.9,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 1254,
+     "cache_read_input_tokens": 69331
+    }
+   },
+   "student": {
+    "text": "it printed `/tmp/onramp_p1_hs_senior_65d3ipsq/student`\n\nis that my home folder?",
+    "words": 8,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "pwd"
+     }
+    ],
+    "duration_ms": 12330,
+    "wall_s": 19.9,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 304,
+     "cache_read_input_tokens": 74406
+    }
+   }
+  },
+  {
+   "n": 23,
+   "teacher": {
+    "text": "Close \u2014 `pwd` shows where you *are right now*, which isn't always the same as home. Your home directory is wherever `~` points (on JupyterHub, usually `/home/jovyan`).\n\nBut you don't need to go home first. Try `ls` right where you are \u2014 what files and folders do you see?",
+    "words": 49,
+    "tools": [],
+    "duration_ms": 15101,
+    "wall_s": 27.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 787,
+     "cache_read_input_tokens": 69764
+    }
+   },
+   "student": {
+    "text": "it shows `data`, `pyproject.toml`, `uv.lock`, and `work`\n\ni see the `data` folder! so i'm already kind of in the right place?",
+    "words": 21,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "ls"
+     }
+    ],
+    "duration_ms": 7935,
+    "wall_s": 15.2,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 145,
+     "cache_read_input_tokens": 75422
+    }
+   }
+  },
+  {
+   "n": 24,
+   "teacher": {
+    "text": "Exactly right \u2014 the data folder is right here. Now move into it and see what's inside, including file sizes. You've got the commands from earlier.",
+    "words": 26,
+    "tools": [],
+    "duration_ms": 4242,
+    "wall_s": 12.4,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 170,
+     "cache_read_input_tokens": 71054
+    }
+   },
+   "student": {
+    "text": "okay i can see all the files! `axial_bathymetry_gmrt.nc` is 1.4M, `plate_boundary.csv` is 6.3K...\n\nand `axial_bathymetry_gmrt.nc` is definitely there like you mentioned earlier. did i do that right?",
+    "words": 27,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "cd /tmp/onramp_p1_hs_senior_65d3ipsq/student/data && ls -lh"
+     }
+    ],
+    "duration_ms": 10083,
+    "wall_s": 17.0,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 239,
+     "cache_read_input_tokens": 75869
+    }
+   }
+  },
+  {
+   "n": 25,
+   "teacher": {
+    "text": "You did that perfectly. `cd data` \u2192 `ls -lh` \u2192 found both files and their sizes. That's exactly right.\n\nBefore opening vi, try one more command: `head plate_boundary.csv`. It'll show you the first few lines \u2014 the column header \u2014 without opening an editor. What does it print?",
+    "words": 48,
+    "tools": [],
+    "duration_ms": 13601,
+    "wall_s": 27.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 681,
+     "cache_read_input_tokens": 71985
+    }
+   },
+   "student": {
+    "text": "it printed a header row that says `lon,lat,segment_id` and then a bunch of coordinate numbers! \n\nso it's like... a list of points on a map? with longitude, latitude, and some kind of segment number?",
+    "words": 34,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "head /tmp/onramp_p1_hs_senior_65d3ipsq/student/data/plate_boundary.csv"
+     }
+    ],
+    "duration_ms": 13847,
+    "wall_s": 20.8,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 198,
+     "cache_read_input_tokens": 76829
+    }
+   }
+  },
+  {
+   "n": 26,
+   "teacher": {
+    "text": "Exactly right \u2014 it's a list of GPS points tracing the plate boundary across the NE Pacific. The `segment_id` groups the points into separate line segments. That's what you'll overlay on the map in Step 1.\n\nNow the vi part. Type:\n\n```\nvi plate_boundary.csv\n```\n\nYou should see the file open. Tell me what you see on screen \u2014 and then exit without saving (you know the keystrokes from earlier).",
+    "words": 70,
+    "tools": [],
+    "duration_ms": 6023,
+    "wall_s": 14.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 237,
+     "cache_read_input_tokens": 72231
+    }
+   },
+   "student": {
+    "text": "okay so i typed `vi plate_boundary.csv` and the file opened \u2014 i can see all the coordinates and stuff on screen.\n\nbut then i accidentally hit some key and now... it looks like i'm in that \"typing\" mode? like i pressed something while trying to look at the file and now there's `-- INSERT --` at the bottom of the screen.\n\ni tried pressing `:q` but instead of quitting it just typed `:q` into the file. and i tried pressing escape but now i don't know if i'm back in the right mode or not, and i'm scared to type anything else because what if i mess up the file more.\n\num. i think i broke it. it won't let me out.",
+    "words": 122,
+    "tools": [],
+    "duration_ms": 24746,
+    "wall_s": 37.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 982,
+     "cache_read_input_tokens": 38770
+    }
+   }
+  },
+  {
+   "n": 27,
+   "teacher": {
+    "text": "You haven't broken anything \u2014 this is the classic vi moment and it's completely recoverable. This is exactly why `:q!` exists.\n\nHere's your escape sequence, exactly:\n\n1. Press **`Esc`** once (even if you already did \u2014 it's safe to press it twice)\n2. Type **`:q!`** (colon, then q, then !)\n3. Hit **Enter**\n\nThe `!` means \"discard everything and get me out.\" The file is fine \u2014 vi doesn't save until you say `:wq`.\n\nTry it and tell me what happens.",
+    "words": 81,
+    "tools": [],
+    "duration_ms": 7930,
+    "wall_s": 15.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 324,
+     "cache_read_input_tokens": 72966
+    }
+   },
+   "student": {
+    "text": "okay i pressed Esc, then typed `:q!`, then hit Enter and...\n\nit worked! i'm back at the regular terminal prompt! the file is still there in the listing.\n\noh that's actually such a relief lol, i thought i'd messed up the whole file",
+    "words": 43,
+    "tools": [],
+    "duration_ms": 4568,
+    "wall_s": 12.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 166,
+     "cache_read_input_tokens": 39024
+    }
+   }
+  },
+  {
+   "n": 28,
+   "teacher": {
+    "text": "The file is completely untouched \u2014 vi never changes anything until you explicitly say `:wq`. The `!` in `:q!` is literally there for exactly what just happened to you.\n\nAnd you just completed the Step 0 capstone:\n- \u2713 `cd` into the data directory\n- \u2713 `ls -lh` \u2014 found `axial_bathymetry_gmrt.nc` and confirmed its size\n- \u2713 `head` \u2014 peeked at the CSV header without an editor\n- \u2713 `vi plate_boundary.csv` \u2014 opened it, read the header, escaped cleanly\n\n**Step 0 cleared. Step 1 is now unlocked.**\n\n---\n\nBefore we move on \u2014 three quick questions, 30 seconds:\n\n1. **Difficulty:** Too easy, about right, or too hard?\n2. **Friction:** Anything confusing or where you got genuinely stuck?\n3. **Keep/cut:** One thing that helped, or one thing you'd change about this step?",
+    "words": 131,
+    "tools": [],
+    "duration_ms": 22148,
+    "wall_s": 35.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 1089,
+     "cache_read_input_tokens": 73364
+    }
+   },
+   "student": {
+    "text": "1. about right i think? the beginning was kinda scary because i had no idea what any of it meant, but by the end it felt like it was making sense\n\n2. the vi thing honestly \u2014 even knowing the commands from when you explained them, when it actually happened i just froze and forgot everything. like theory vs actually doing it is different\n\n3. the hints really helped, especially when you explained *why* (like why `:q!` is safe). if you'd just told me the command i probably wouldn't have remembered it. i'd cut... idk, maybe the assessment felt pretty long? but i get why you needed to know where i was starting from",
+    "words": 114,
+    "tools": [],
+    "duration_ms": 8551,
+    "wall_s": 15.4,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 306,
+     "cache_read_input_tokens": 40143
+    }
+   }
+  },
+  {
+   "n": 29,
+   "teacher": {
+    "text": "---\n\n**Step 1: Locate it**\n\nThe domain question is: *Where on Earth is Axial Seamount, and what does its seafloor look like?*\n\nYou're going to answer that by writing Python code to plot it. The end goal \u2014 the capstone \u2014 is a map of Axial's bathymetry with the plate boundary overlaid on top.\n\nTo do that you'll need three tools: **JupyterLab** (where you run Python), a bit of **Python**, and **matplotlib** (the plotting library you saw in the assessment). Since you're on the compressed path, we're skipping the pre-reading and jumping straight in.\n\nOpen a **new Jupyter notebook** in JupyterLab (File \u2192 New \u2192 Notebook). Once it's open, in the first cell, type this and run it (Shift+Enter):\n\n```python\nimport xarray as xr\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nds = xr.open_dataset(\"../data/axial_bathymetry_gmrt.nc\")\nds\n```\n\nWhat does it print?",
+    "words": 141,
+    "tools": [
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/feedback.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     }
+    ],
+    "duration_ms": 29609,
+    "wall_s": 37.6,
+    "num_turns": 4,
+    "usage": {
+     "input_tokens": 6,
+     "output_tokens": 1320,
+     "cache_read_input_tokens": 300564
+    }
+   },
+   "student": {
+    "text": "it printed a bunch of info! it says:\n\n- dimensions are `lat: 654` and `lon: 910` \n- there's a coordinate for lat going from like 45.7 to 46.2 and lon from -130.5 to -129.5\n- one data variable called `elevation`\n- and some attributes about where the data came from\n\nso it's like a grid \u2014 654 rows of latitude and 910 columns of longitude, and each point has an elevation value?",
+    "words": 72,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport xarray as xr\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nds = xr.open_dataset('data/axial_bathymetry_gmrt.nc')\nprint(ds)\n\""
+     }
+    ],
+    "duration_ms": 17841,
+    "wall_s": 31.1,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 414,
+     "cache_read_input_tokens": 81661
+    }
+   }
+  },
+  {
+   "n": 30,
+   "teacher": {
+    "text": "Exactly right \u2014 a 654\u00d7910 grid where each cell holds one elevation value. You just described a raster dataset perfectly.\n\nQuick question before we plot: the variable is called `elevation`, and Axial Seamount is **underwater**. What do you expect those numbers to look like \u2014 positive, negative, or mixed?",
+    "words": 49,
+    "tools": [],
+    "duration_ms": 18359,
+    "wall_s": 26.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 829,
+     "cache_read_input_tokens": 76276
+    }
+   },
+   "student": {
+    "text": "oh um... negative? because it's underwater, so it's below sea level, and i'd guess elevation below sea level is like a negative number?\n\nbut wait \u2014 it's called a *seamount* so it's a mountain sticking up from the seafloor. so maybe most of the numbers are pretty negative (like deep ocean) but the top of the seamount is less negative? like negative but closer to zero than the surrounding area?",
+    "words": 70,
+    "tools": [],
+    "duration_ms": 6853,
+    "wall_s": 14.0,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 247,
+     "cache_read_input_tokens": 41816
+    }
+   }
+  },
+  {
+   "n": 31,
+   "teacher": {
+    "text": "Exactly that \u2014 the seamount rises from a surrounding abyssal plain, so you'll see a cluster of less-negative values surrounded by more-negative ones. That's the topography.\n\nNow let's look at it. Add a new cell and run this:\n\n```python\nelev = ds[\"elevation\"].values\nlat  = ds[\"lat\"].values\nlon  = ds[\"lon\"].values\n\nplt.figure(figsize=(8, 6))\nplt.imshow(elev, origin=\"lower\",\n           extent=[lon.min(), lon.max(), lat.min(), lat.max()],\n           aspect=\"auto\")\nplt.colorbar(label=\"elevation (m)\")\nplt.xlabel(\"longitude\")\nplt.ylabel(\"latitude\")\nplt.title(\"Axial Seamount \u2014 bathymetry\")\nplt.show()\n```\n\nTwo things to notice once it renders: what do the colors look like, and can you spot where the seamount is? Tell me what you see.",
+    "words": 93,
+    "tools": [],
+    "duration_ms": 15544,
+    "wall_s": 28.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 799,
+     "cache_read_input_tokens": 76744
+    }
+   },
+   "student": {
+    "text": "okay i saved it and opened it! so...\n\nthere's a big bright yellow-green area in the upper left \u2014 that must be the seamount? because the colorbar shows yellow is around -500m which is less negative than the rest. and the surrounding area is mostly dark purple-blue which is like -2000 to -2500m deep.\n\nso the mountain is definitely sticking up way above the surrounding seafloor!",
+    "words": 66,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport xarray as xr\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nds = xr.open_dataset('data/axial_bathymetry_gmrt.nc')\nelev = ds['elevation'].values\nlat  = ds['lat'].values\nlon  = ds['lon'].values\n\nplt.figure(figsize=(8, 6))\nplt.imshow(elev, origin='lower',\n           extent=[lon.min(), lon.max(), lat.min(), lat.max()],\n           aspect='auto')\nplt.colorbar(label='elevation (m)')\nplt.xlabel('longitude')\nplt.ylabel('latitude')\nplt.title('Axial Seamount \u2014 bathymetry')\nplt.savefig('work/bathymetry.png')\nprint('saved')\n\""
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/student/work/bathymetry.png"
+     }
+    ],
+    "duration_ms": 19972,
+    "wall_s": 27.6,
+    "num_turns": 3,
+    "usage": {
+     "input_tokens": 5,
+     "output_tokens": 670,
+     "cache_read_input_tokens": 127493
+    }
+   }
+  },
+  {
+   "n": 32,
+   "teacher": {
+    "text": "You've read the map perfectly. The caldera \u2014 the collapsed summit crater \u2014 is in that yellow-green patch, and the walls drop sharply into the surrounding basin.\n\nNow for the boundary overlay. You saw earlier that `plate_boundary.csv` has `lon` and `lat` columns. There's a library called **pandas** that loads CSV files in one line \u2014 and you'll use it a lot in Step 4. For now, just one function: `pd.read_csv(...)`.\n\nGiven what you know about how `xr.open_dataset` worked, what do you think the pandas equivalent for loading a CSV might look like?",
+    "words": 92,
+    "tools": [],
+    "duration_ms": 19160,
+    "wall_s": 26.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 868,
+     "cache_read_input_tokens": 77669
+    }
+   },
+   "student": {
+    "text": "oh, based on how xarray worked \u2014 like `import pandas as pd` and then `pd.read_csv(\"../data/plate_boundary.csv\")`?\n\nyou kind of already told me the function name so that felt a bit like cheating lol",
+    "words": 32,
+    "tools": [],
+    "duration_ms": 4442,
+    "wall_s": 17.9,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 151,
+     "cache_read_input_tokens": 43289
+    }
+   }
+  },
+  {
+   "n": 33,
+   "teacher": {
+    "text": "Ha \u2014 fair, I handed you that one. But you got the import pattern right on your own, which is the part that transfers.\n\nHere's the full overlay. Put this in a new cell \u2014 it builds the complete capstone plot:\n\n```python\nimport pandas as pd\n\nboundary = pd.read_csv(\"../data/plate_boundary.csv\")\n\nplt.figure(figsize=(8, 6))\nplt.imshow(elev, origin=\"lower\",\n           extent=[lon.min(), lon.max(), lat.min(), lat.max()],\n           aspect=\"auto\")\nplt.colorbar(label=\"elevation (m)\")\nplt.plot(boundary[\"lon\"], boundary[\"lat\"], \"r-\", linewidth=0.5)\nplt.xlim(lon.min(), lon.max())\nplt.ylim(lat.min(), lat.max())\nplt.xlabel(\"longitude\")\nplt.ylabel(\"latitude\")\nplt.title(\"Axial Seamount \u2014 bathymetry + plate boundary\")\nplt.show()\n```\n\nThe two new lines \u2014 `plt.xlim(...)` and `plt.ylim(...)` \u2014 are why the capstone note warned you: without them, matplotlib stretches the axes to show the entire NE Pacific boundary and the seamount becomes a tiny speck.\n\nRun it and tell me what you see \u2014 specifically, where does the boundary line fall relative to the seamount?",
+    "words": 135,
+    "tools": [],
+    "duration_ms": 18435,
+    "wall_s": 25.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 1033,
+     "cache_read_input_tokens": 78563
+    }
+   },
+   "student": {
+    "text": "oh wow okay! there's red lines on the map now. \n\nit looks like the plate boundary actually goes right through the seamount area? like there are these curvy red lines around the yellow-green part, kind of looping around the summit area. and there's also a straight-ish red line on the left side going up-down.\n\nso the volcano is like... sitting right on or near the plate boundary? that makes sense with what you said earlier about the plates pulling apart!",
+    "words": 80,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport xarray as xr\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\nds = xr.open_dataset('data/axial_bathymetry_gmrt.nc')\nelev = ds['elevation'].values\nlat  = ds['lat'].values\nlon  = ds['lon'].values\n\nboundary = pd.read_csv('data/plate_boundary.csv')\n\nplt.figure(figsize=(8, 6))\nplt.imshow(elev, origin='lower',\n           extent=[lon.min(), lon.max(), lat.min(), lat.max()],\n           aspect='auto')\nplt.colorbar(label='elevation (m)')\nplt.plot(boundary['lon'], boundary['lat'], 'r-', linewidth=0.5)\nplt.xlim(lon.min(), lon.max())\nplt.ylim(lat.min(), lat.max())\nplt.xlabel('longitude')\nplt.ylabel('latitude')\nplt.title('Axial Seamount \u2014 bathymetry + plate boundary')\nplt.savefig('work/bathymetry_boundary.png')\nprint('saved')\n\""
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/student/work/bathymetry_boundary.png"
+     }
+    ],
+    "duration_ms": 16961,
+    "wall_s": 24.1,
+    "num_turns": 3,
+    "usage": {
+     "input_tokens": 5,
+     "output_tokens": 587,
+     "cache_read_input_tokens": 132278
+    }
+   }
+  },
+  {
+   "n": 34,
+   "teacher": {
+    "text": "That's exactly what you're seeing \u2014 and you just made the Step 2 connection yourself. The curvy lines looping around the summit are the ridge segments; the straighter line on the left is part of the transform fault system. Axial sits right at the intersection where the spreading center is most active.\n\n**Step 1 cleared. Step 2 unlocked.**\n\nBefore we move on \u2014 three quick ones:\n\n1. **Difficulty:** Too easy, about right, or too hard?\n2. **Friction:** Anything confusing, or where you got stuck?\n3. **Keep/cut:** One thing that helped, or one thing you'd change?",
+    "words": 95,
+    "tools": [],
+    "duration_ms": 11697,
+    "wall_s": 25.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 487,
+     "cache_read_input_tokens": 79490
+    }
+   },
+   "student": {
+    "text": "1. about right \u2014 it helped that most of the code was given to me, since i have no idea what i'm doing yet. the hard part was trusting that it would work when i ran it\n\n2. honestly not that much friction this time? the pattern started to feel familiar after a bit. i'm still not totally sure what `origin=\"lower\"` does or why `aspect=\"auto\"` matters, but it worked so\n\n3. seeing the actual plot was really cool \u2014 like it clicked when i could *see* the mountain. i'd keep that. maybe cut the explanation about xlim/ylim ahead of time? i didn't really understand why it mattered until i saw the plot",
+    "words": 112,
+    "tools": [],
+    "duration_ms": 8252,
+    "wall_s": 15.3,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 232,
+     "cache_read_input_tokens": 44838
+    }
+   }
+  },
+  {
+   "n": 35,
+   "teacher": {
+    "text": "---\n\n**Step 2: Why it's there**\n\nThis one is all words \u2014 no code. The domain question: *Why is there a volcano at Axial Seamount, and why did scientists build a cabled observatory there?*\n\nYou already sketched this during the assessment, so let's sharpen it. From the map you just made, you saw the plate boundary running right through the seamount area. Here's a bit more context: Axial sits on the **Juan de Fuca Ridge** \u2014 a spreading center where two oceanic plates are pulling apart. On top of that, it has an unusually strong, persistent magma supply (some call it hotspot-like), which makes it erupt far more often than a typical ridge segment \u2014 including in 2011 and 2015.\n\nNow the capstone question, in your own words:\n\n**Connect Axial's double magma supply \u2014 the spreading ridge plus the persistent hotspot \u2014 to its frequent eruptions. And name one thing a cabled real-time observatory catches that a yearly ship visit would miss.**",
+    "words": 162,
+    "tools": [
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/feedback.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     }
+    ],
+    "duration_ms": 30341,
+    "wall_s": 37.6,
+    "num_turns": 4,
+    "usage": {
+     "input_tokens": 6,
+     "output_tokens": 1327,
+     "cache_read_input_tokens": 326297
+    }
+   },
+   "student": {
+    "text": "okay so... a regular spreading ridge already has magma coming up because the plates are pulling apart and leaving a gap. but axial also has this extra magma source underneath \u2014 the hotspot thing \u2014 so it's like getting fed from two places at once? so there's just way more magma building up, which means it erupts more often than a normal ridge.\n\nand for the observatory \u2014 i said this earlier but: eruptions happen randomly, and a ship only shows up maybe once a year. if axial erupted in like march and the ship comes in july, you missed it completely. but if there's a cable running constant data to shore, you catch the exact moment it starts, what the pressure does, how the temperature spikes \u2014 all of it live. you can't go back and recreate that.",
+    "words": 139,
+    "tools": [],
+    "duration_ms": 8708,
+    "wall_s": 22.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 306,
+     "cache_read_input_tokens": 45091
+    }
+   }
+  },
+  {
+   "n": 36,
+   "teacher": {
+    "text": "That's a strong answer \u2014 and the \"you can't go back and recreate that\" framing is exactly the scientific stakes. An eruption is a singular event. A ship schedule is not.\n\n**Step 2 cleared. Step 3 unlocked.**\n\nQuick three before we move on:\n\n1. **Difficulty:** Too easy, about right, or too hard?\n2. **Friction:** Anything that felt unclear?\n3. **Keep/cut:** One thing that helped, or one thing you'd change?",
+    "words": 69,
+    "tools": [],
+    "duration_ms": 10220,
+    "wall_s": 17.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 431,
+     "cache_read_input_tokens": 82564
+    }
+   },
+   "student": {
+    "text": "1. easier than the coding steps, which was kind of a nice break? like i could just think and talk\n\n2. the \"hotspot-like\" thing is still a bit fuzzy to me \u2014 like i know it means extra magma but i'm not sure how that's different from the spreading ridge magma. but it didn't feel like i needed to know the exact difference to answer the question\n\n3. giving me the extra context at the start (the juan de fuca ridge part) really helped \u2014 i couldn't have connected those things without it. i'd keep that. nothing i'd cut honestly",
+    "words": 100,
+    "tools": [],
+    "duration_ms": 6329,
+    "wall_s": 13.4,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 206,
+     "cache_read_input_tokens": 45558
+    }
+   }
+  },
+  {
+   "n": 37,
+   "teacher": {
+    "text": "---\n\n**Step 3: Get the data**\n\nDomain question: *How does a cabled observatory get ocean data to your laptop?*\n\nYou already did the key move here during the assessment \u2014 you opened an xarray dataset and described its structure. Now you do it for real with actual OOI data.\n\nIn your notebook, new cell:\n\n```python\nds2 = xr.open_dataset(\"../data/axial_tmpsf_2015-01.nc\")\nds2\n```\n\nWhat are its dimensions, and what's the variable?",
+    "words": 68,
+    "tools": [
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/feedback.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     }
+    ],
+    "duration_ms": 20541,
+    "wall_s": 27.9,
+    "num_turns": 4,
+    "usage": {
+     "input_tokens": 6,
+     "output_tokens": 1091,
+     "cache_read_input_tokens": 335533
+    }
+   },
+   "student": {
+    "text": "okay it shows:\n\n- dimensions: `time: 359` and `sensor: 24`\n- one variable called `temperature` that's like a grid of time \u00d7 sensor\n- the time coordinate goes from 2015-01-01 to 2015-01-15 (so like two weeks?)\n- there are 24 sensors\n\nso it's like... 24 different temperature sensors measuring at the same time points? why would you need 24 sensors in the same place?",
+    "words": 64,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport xarray as xr\nds2 = xr.open_dataset('data/axial_tmpsf_2015-01.nc')\nprint(ds2)\n\""
+     }
+    ],
+    "duration_ms": 10909,
+    "wall_s": 24.2,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 259,
+     "cache_read_input_tokens": 92294
+    }
+   }
+  },
+  {
+   "n": 38,
+   "teacher": {
+    "text": "Good question \u2014 they're not all in the same spot. The TMPSF array is spread across a diffuse vent field at Axial, with 24 individual temperature probes placed at different points on the seafloor. Diffuse flow (warm water seeping through cracks) is patchy \u2014 one spot might be 5\u00b0C warmer than another a meter away. The array captures that spatial variation, not just a single point. This is the data that connects to the `tmpsf` project you'll work on later.\n\nAnd \u2014 you just cleared the capstone. You opened the dataset and reported exactly what was asked: dims (`time: 359`, `sensor: 24`), coords (two weeks of timestamps), and the variable (`temperature`).\n\nOne quick thing before we confirm: try `ds2[\"temperature\"]` in a new cell. What does it show you?",
+    "words": 128,
+    "tools": [],
+    "duration_ms": 22839,
+    "wall_s": 30.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 922,
+     "cache_read_input_tokens": 84781
+    }
+   },
+   "student": {
+    "text": "oh it gives more detail \u2014 it says `8616 values` (which is 359 times 24 i think?), and the units are `degree_Celsius`. and there's a description that says it's from the OOI RS03ASHS TMPSF array, hourly, QC-filtered.\n\nwhat's QC-filtered mean?",
+    "words": 40,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport xarray as xr\nds2 = xr.open_dataset('data/axial_tmpsf_2015-01.nc')\nprint(ds2['temperature'])\n\""
+     }
+    ],
+    "duration_ms": 9782,
+    "wall_s": 16.7,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 233,
+     "cache_read_input_tokens": 93708
+    }
+   }
+  },
+  {
+   "n": 39,
+   "teacher": {
+    "text": "QC = quality control. Sensors glitch \u2014 spikes, dropouts, biofouling events (organisms growing on the sensor face). OOI runs automated checks to flag or remove obviously bad readings before the data is distributed. \"QC-filtered\" means those bad points are already stripped out, so you're working with the cleaner version. You'll notice gaps in the time series sometimes; that's usually why.\n\n**Step 3 cleared. Step 4 unlocked.**\n\nThree quick ones:\n\n1. **Difficulty:** Too easy, about right, or too hard?\n2. **Friction:** Anything confusing?\n3. **Keep/cut:** One thing that helped, or one thing you'd change?",
+    "words": 93,
+    "tools": [],
+    "duration_ms": 8708,
+    "wall_s": 23.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 331,
+     "cache_read_input_tokens": 85016
+    }
+   },
+   "student": {
+    "text": "1. pretty easy \u2014 i'd already done this pattern in the assessment so it felt familiar\n\n2. the QC thing i genuinely didn't know, but you explained it right away so it didn't stay confusing. the 24 sensors question i'm glad i asked because the answer actually makes sense for the science\n\n3. the part that helped most was when you explained *why* 24 sensors \u2014 like the patchy diffuse flow thing. just knowing what the data *means* makes it easier to remember. i'd keep that kind of context. nothing to cut really",
+    "words": 93,
+    "tools": [],
+    "duration_ms": 5902,
+    "wall_s": 13.6,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 209,
+     "cache_read_input_tokens": 47517
+    }
+   }
+  },
+  {
+   "n": 40,
+   "teacher": {
+    "text": "That pattern recognition is exactly what you want to build \u2014 new tools feel less scary when you've seen the shape before.\n\n---\n\n**Step 4: See the science**\n\nLast one. Domain question: *Is there a tide on the seafloor \u2014 and can you see it in the data?*\n\nThis uses a different dataset and a new tool: **pandas**, which handles tabular time-series data. In your notebook:\n\n```python\nimport pandas as pd\n\ndf = pd.read_parquet(\"../data/axial_botpt_2015-01.parquet\")\ndf\n```\n\nWhat does it show \u2014 what's the index, what's the column, and how many rows?",
+    "words": 91,
+    "tools": [
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/feedback.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     }
+    ],
+    "duration_ms": 21831,
+    "wall_s": 28.9,
+    "num_turns": 4,
+    "usage": {
+     "input_tokens": 6,
+     "output_tokens": 973,
+     "cache_read_input_tokens": 346834
+    }
+   },
+   "student": {
+    "text": "okay so:\n\n- the index is `time` \u2014 it's a datetime going minute by minute from jan 1 to jan 14\n- the column is `bottom_pressure_psi`\n- it has 20,129 rows \u2014 which makes sense for two weeks of 1-minute data?\n\nthe pressure values are all around 2252 psi. i don't know if that's a lot for underwater but it seems like a big number",
+    "words": 65,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport pandas as pd\ndf = pd.read_parquet('data/axial_botpt_2015-01.parquet')\nprint(df)\nprint()\nprint('shape:', df.shape)\nprint('index type:', type(df.index))\nprint('columns:', df.columns.tolist())\nprint(df.head())\n\""
+     }
+    ],
+    "duration_ms": 10894,
+    "wall_s": 24.7,
+    "num_turns": 2,
+    "usage": {
+     "input_tokens": 4,
+     "output_tokens": 287,
+     "cache_read_input_tokens": 95881
+    }
+   }
+  },
+  {
+   "n": 41,
+   "teacher": {
+    "text": "2252 psi is about 153 atmospheres \u2014 which puts Axial at roughly 1500 meters depth. Each 10 meters of seawater adds about 1 atm. So yes, that's a lot of pressure if you're a person, but it's just what the seafloor feels like there.\n\nNow look for the tide. From your assessment you had the right idea \u2014 resample to hourly and plot a few days. New cell:\n\n```python\nhourly = df[\"bottom_pressure_psi\"].resample(\"1h\").mean()\n\nhourly.plot(figsize=(12, 4))\nplt.ylabel(\"bottom pressure (psi)\")\nplt.title(\"Axial \u2014 bottom pressure, hourly\")\nplt.show()\n```\n\nWhat does the shape of the line look like?",
+    "words": 93,
+    "tools": [],
+    "duration_ms": 12288,
+    "wall_s": 19.4,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 567,
+     "cache_read_input_tokens": 87580
+    }
+   },
+   "student": {
+    "text": "oh wow it's so wavy! like there's a clear up-and-down pattern repeating over and over.\n\nit looks like the peaks happen roughly twice a day? like maybe every 12ish hours? and the peaks at the start of the month are bigger than the ones near the end \u2014 the wave is a different size but the same rhythm.\n\nis that the tides?!",
+    "words": 62,
+    "tools": [
+     {
+      "name": "Bash",
+      "input": "uv run python -c \"\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndf = pd.read_parquet('data/axial_botpt_2015-01.parquet')\nhourly = df['bottom_pressure_psi'].resample('1h').mean()\n\nhourly.plot(figsize=(12, 4))\nplt.ylabel('bottom pressure (psi)')\nplt.title('Axial \u2014 bottom pressure, hourly')\nplt.savefig('work/pressure_hourly.png')\nprint('saved')\n\""
+     },
+     {
+      "name": "Read",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/student/work/pressure_hourly.png"
+     }
+    ],
+    "duration_ms": 15150,
+    "wall_s": 22.2,
+    "num_turns": 3,
+    "usage": {
+     "input_tokens": 5,
+     "output_tokens": 409,
+     "cache_read_input_tokens": 147124
+    }
+   }
+  },
+  {
+   "n": 42,
+   "teacher": {
+    "text": "That's exactly the tides \u2014 you found them. What you're seeing is the **M2 tide**: the dominant lunar semidiurnal signal, with a period of ~12.42 hours. \"Semidiurnal\" just means twice-daily. The moon's gravity pulls the ocean into a bulge, and as the Earth rotates under it, any fixed point on the seafloor passes through that bulge roughly twice per day.\n\nThe changing amplitude you noticed \u2014 bigger peaks early in the month, smaller ones later \u2014 is the **spring-neap cycle**. When the sun and moon align (new/full moon), their pulls add up and you get larger tides. When they're at 90\u00b0, they partially cancel and you get smaller ones. That plays out over ~two weeks, which is exactly what you're seeing.\n\n**That's the Step 4 capstone \u2014 and the last step.**\n\nYou loaded the data, resampled to hourly, and identified the M2 tidal signal. Gate cleared.\n\nOne more set of feedback questions, then a bridge note, and you're done:\n\n1. **Difficulty:** Too easy, about right, or too hard?\n2. **Friction:** Anything confusing?\n3. **Keep/cut:** One thing that helped, or one thing you'd change?",
+    "words": 183,
+    "tools": [],
+    "duration_ms": 8170,
+    "wall_s": 22.2,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 292,
+     "cache_read_input_tokens": 87833
+    }
+   },
+   "student": {
+    "text": "1. about right \u2014 the code was straightforward to copy but seeing the actual tidal pattern in real data felt kind of amazing honestly\n\n2. i'm still a little fuzzy on what `resample(\"1h\")` is literally doing \u2014 like i get that it groups by hour but i'm not totally sure what happens to the individual minutes in that hour. but it worked so\n\n3. the \"you just found the tides\" moment \u2014 that was really cool. like i wasn't sure my guess from the assessment was right until i actually saw it in the plot. keep that. nothing to cut",
+    "words": 100,
+    "tools": [],
+    "duration_ms": 6245,
+    "wall_s": 13.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 192,
+     "cache_read_input_tokens": 50100
+    }
+   }
+  },
+  {
+   "n": 43,
+   "teacher": {
+    "text": "---\n\n**You're done with the slice.**\n\nHere's where you landed: you used the shell to navigate to data, opened a file in vi, plotted Axial's bathymetry with a plate boundary overlay, explained the geology and why the observatory exists, opened a multi-dimensional OOI dataset with xarray, and found the M2 tidal signal in a month of pressure data. All from scratch, in one session.\n\n**Bridge:** That tidal signal in the bottom pressure isn't just interesting on its own. Tidal loading also modulates diffuse vent flow \u2014 the warm water seeping through the seafloor cracks around Axial. That's the question the `tmpsf` and `magma2vents` projects are actually pursuing. The data you just looked at is the doorstep to that work.\n\n---\n\nOne last thing: your `feedback.md` file has notes from every step \u2014 what helped, what was confusing, where you got stuck. That's how the onramp improves for the next student. Would you be willing to share it with Dr. Soule?\n\nIf yes, the options are:\n1. Open an issue on `qc-soule-lab/student-onramp` and paste the contents\n2. Ask Dr. Soule directly \u2014 he can pull it from your clone if you give him access\n\nIf no, it stays local and that's completely fine.",
+    "words": 202,
+    "tools": [
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/feedback.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     },
+     {
+      "name": "Edit",
+      "input": "/tmp/onramp_p1_hs_senior_65d3ipsq/teacher/progress.md"
+     }
+    ],
+    "duration_ms": 40350,
+    "wall_s": 47.3,
+    "num_turns": 4,
+    "usage": {
+     "input_tokens": 6,
+     "output_tokens": 1746,
+     "cache_read_input_tokens": 357765
+    }
+   },
+   "student": {
+    "text": "yeah that's totally fine, he can have it! if it helps make it better for the next person that's cool.\n\neither way works for me \u2014 whatever's easier on your end",
+    "words": 31,
+    "tools": [],
+    "duration_ms": 4026,
+    "wall_s": 17.8,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 86,
+     "cache_read_input_tokens": 50476
+    }
+   }
+  },
+  {
+   "n": 44,
+   "teacher": {
+    "text": "In the terminal, run:\n\n```\ncat feedback.md\n```\n\nThat'll print the whole file. Then either:\n- Go to `qc-soule-lab/student-onramp` on GitHub, open a new issue, paste it in (title it something like \"Student feedback \u2014 June 2026\")\n- Or just show Dr. Soule directly and he can grab it\n\nEither works \u2014 the content is what matters, not the delivery method.\n\nAnd that's the full onramp, Sam. You came in having never opened a terminal, and you left having navigated the shell, used vi, written Python plots, opened OOI datasets, and found a tidal signal in real seafloor pressure data. Good first day.",
+    "words": 103,
+    "tools": [],
+    "duration_ms": 14400,
+    "wall_s": 21.5,
+    "num_turns": 1,
+    "usage": {
+     "input_tokens": 3,
+     "output_tokens": 682,
+     "cache_read_input_tokens": 90522
+    }
+   },
+   "student": null
+  }
+ ]
+}
