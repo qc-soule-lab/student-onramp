@@ -51,12 +51,12 @@ coding:
     step: 1
     chapter: jupyter_basics
     summary: "Runs cells, restarts kernel, reads tracebacks in JupyterLab."
-    probes: [p02_matplotlib_bathy]
+    probes: [p02a_jupyter_basics]
   - id: python_fundamentals
     step: 1
     chapter: python_fundamentals
     summary: "Variables, lists, indexing, calling functions, importing modules."
-    probes: [p02_matplotlib_bathy]
+    probes: [p02b_python_fundamentals]
   - id: matplotlib_plot
     step: 1
     chapter: numpy_matplotlib

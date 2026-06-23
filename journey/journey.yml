@@ -52,7 +52,8 @@ slice:
       readings: [lab2]
       enrichment: [geomapapp]    # OPTIONAL no-code visual primer (same GMRT data); never gating
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
-      probes: [p01_meters_per_degree, p02_matplotlib_bathy]
+      note: "Three chapters here (JupyterLab, Python, numpy/matplotlib) — verify each with its own probe (run-a-cell, Python indexing, the plot), not only the final plot. The capstone also needs axis-limiting (xlim/ylim or imshow extent=) and the boundary overlay, which the linked chapters don't cover deeply — teach those in one line at the capstone."
+      probes: [p01_meters_per_degree, p02a_jupyter_basics, p02b_python_fundamentals, p02_matplotlib_bathy]
       capstone: "Plot Axial's location + bathymetry from the staged grid, boundary overlaid. (Heads-up: plate_boundary.csv spans the whole NE Pacific — limit your axes to the grid's extent.)"
       gate:
         must: "Capstone done — bathymetry image produced WITH a colorbar; meters-per-degree understood (p01/p02 not `wrong`)."
@@ -67,6 +68,7 @@ slice:
       coding_skills: []          # conceptual — Socratic Q&A + light reading (Constitution VI)
       chapters: []
       readings: [lab3, lab1]
+      note: "Before the capstone, explicitly CONTRAST the two magma sources — decompression melting (plate spreading lowers pressure → mantle melts) vs a hotspot/thermal plume (extra heat from below). Both make magma but by different causes; students conflate them. Lay them side by side, then connect both to Axial's frequent eruptions."
       probes: [p03_why_axial]
       # capstone deliberately goes one notch past p03 (same key concepts, applied
       # framing) — a Proficient student must not get the probe verbatim again (P4 run defect D1)

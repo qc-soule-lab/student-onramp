@@ -1,6 +1,6 @@
 *AI-generated draft (Claude, Anthropic) — for review.*
 
-# Probe p02 — show the bathymetry  (coding · step 1 · skills: jupyter_basics, python_fundamentals, matplotlib_plot)
+# Probe p02 — show the bathymetry  (coding · step 1 · skills: matplotlib_plot)
 
 ## Prompt (show to student)
 You've loaded a 2-D NumPy array `depth` (rows = latitude, columns = longitude) of seafloor depths.
