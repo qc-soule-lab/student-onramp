@@ -82,7 +82,7 @@ chapter, and the moment (if any) you'd have quit if this weren't a favor to Dax.
 ## 6. Stopping and resuming
 
 Stop whenever you like — just close the terminal. To resume (even days later): open a terminal,
-`cd student-onramp`, run `claude`, and type `continue`. It should greet you, tell you exactly
+`cd student-onramp`, run `claude`, and type `resume`. It should greet you, tell you exactly
 where you left off, and **never re-ask an assessment question it already asked**. If it does
 re-ask one, note it — that's a bug we want to know about.
 

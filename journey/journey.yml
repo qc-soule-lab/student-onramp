@@ -85,6 +85,7 @@ slice:
       chapters: [xarray_intro]
       readings: [lab1]
       data: [axial_tmpsf_2015-01.nc]
+      note: "Frame xarray as 'labeled data' — a grid that knows its axis names (time, sensor); preview dims/coords/data_vars gently before the capstone so it doesn't land cold."
       probes: [p04_xarray_inspect]
       capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable — then DO something with it: select one sensor (or slice a one-day time window) and report the resulting shape plus a couple of temperature values."
       gate:
@@ -101,6 +102,7 @@ slice:
       chapters: [pandas_intro, pandas_basics]
       readings: [lab4, tidal_nugget]
       data: [axial_botpt_2015-01.parquet]
+      note: "pd.read_parquet(path) loads the file into a DataFrame just like pd.read_csv — same DataFrame, datetime index already set; teach it in one line at the capstone."
       probes: [p05_pandas_resample]
       capstone: "Load data/axial_botpt_2015-01.parquet, resample bottom_pressure_psi to hourly, and reveal the M2 (~12.4 h) tidal signal; describe it."
       gate:

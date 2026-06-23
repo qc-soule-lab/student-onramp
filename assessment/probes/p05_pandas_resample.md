@@ -22,3 +22,5 @@ You load `data/axial_botpt_2015-01.parquet` (`df = pd.read_parquet(...)`) — a 
 - `partial`: resample right but doesn't name the tide, or names the tide without the syntax.
 - `wrong`: neither.
 **Anchor (Constitution III):** the resample syntax or the tide identification produced only after R2/R3 spelled them out scores per the after-reveal rule — an unaided tidal ID with hinted syntax is `partial`, not `correct`.
+
+**Intro-tool fast-path:** pandas is taught *after* the assessment — if the student says they've **never used pandas**, record **Novice** (full scaffold) and skip the ladder; only run the task + ladder if they've used it before.

@@ -59,7 +59,7 @@ The orientation's last step gives you the commands (clone the course, `uv sync`,
   stuck honestly if you get stuck.
 - After every step it asks three quick feedback questions — answer as yourself; you can also
   flag anything mid-activity at any moment, and it should log it without losing your place.
-- Stop whenever you like; resume with `claude` + `continue` in the course folder. It should
+- Stop whenever you like; resume with `claude` + `resume` in the course folder. It should
   greet you, say exactly where you left off, and never re-ask an answered question.
 
 ## When you finish
