@@ -178,3 +178,12 @@ def test_local_student_files_gitignored():
 def test_generated_artifact_templates_exist():
     for t in ("journey_plan", "progress", "feedback", "misconceptions"):
         assert (ROOT / "templates" / f"{t}.template.md").exists(), f"missing template: {t}.template.md"
+
+
+# --- Theme 1: step 0 builds terminal comfort ------------------------------
+
+def test_step0_shell_warmup_wired(journey):
+    step0 = next(s for s in journey["steps"] if s["n"] == 0)
+    assert step0.get("warmup"), "step 0 must name a shell warm-up (Theme 1: Unix comfort)"
+    assert (ROOT / "content" / f"{step0['warmup']}.md").exists(), "shell_warmup content file missing"
+    assert (ROOT / "content" / "terminal_survival_card.md").exists(), "terminal survival card missing"

@@ -33,11 +33,12 @@ slice:
       coding_skills: [unix_basics, vi_basics]
       chapters: [unix_basics]    # unix from the book; vi has no book chapter — sourced as a reading
       readings: [vi_ref]         # Wikibooks "Learning the vi Editor" (CC BY-SA 4.0) — see readings.md
+      warmup: shell_warmup       # content/shell_warmup.md — guided terminal practice (NOT graded) before the capstone
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
       probes: [p00_unix_navigate, p00c_shell_peek, p00d_read_error, p00b_vi_edit]
-      capstone: "From the JupyterLab terminal: cd to the data dir, ls the staged grid, and open plate_boundary.csv in vi to read its header — then exit cleanly."
+      capstone: "From the JupyterLab terminal: navigate to the data dir using tab-completion, ls -lh the staged grid, peek at plate_boundary.csv's header with head, then open it in vi, read the header, and exit cleanly without saving."
       gate:
-        must: "Capstone done — located the staged .nc grid via the shell AND opened a file in vi and exited cleanly (p00 not `wrong`; p00b not `wrong`)."
+        must: "Capstone done — judged on the demonstration itself, NOT the pre-teaching probe scores: the student navigated to the data dir, listed the staged grid, peeked at a file with head, and opened a file in vi and exited cleanly. (Probe scores are the pre-teaching baseline; the capstone is the post-teaching check.)"
         unlocks: 1
 
     - n: 1

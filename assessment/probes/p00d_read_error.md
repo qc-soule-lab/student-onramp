@@ -16,8 +16,8 @@ Recover by orienting and pointing at the right place:
 ```bash
 pwd                       # where am I right now?
 ls                        # what's actually in this directory?
-cd ~/data                 # move to where the file lives (or give the full/relative path to cat)
-cat ~/data/plate_boundary.csv
+cd ~/student-onramp/data  # move to where the file lives (or give the full/relative path to cat)
+cat ~/student-onramp/data/plate_boundary.csv
 ```
 Key idea: commands run **relative to where you are**. "No such file or directory" means the path
 doesn't resolve from here — fix your location or the path; tab-completion avoids typos.
