@@ -52,7 +52,8 @@ slice:
       readings: [lab2]
       enrichment: [geomapapp]    # OPTIONAL no-code visual primer (same GMRT data); never gating
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
-      note: "Three chapters here (JupyterLab, Python, numpy/matplotlib) — verify each with its own probe (run-a-cell, Python indexing, the plot), not only the final plot. The capstone also needs axis-limiting (xlim/ylim or imshow extent=) and the boundary overlay, which the linked chapters don't cover deeply — teach those in one line at the capstone."
+      note: "Three chapters here (JupyterLab, Python, numpy/matplotlib) — verify each with its own probe (run-a-cell, Python indexing, the plot), not only the final plot. The capstone also needs axis-limiting (xlim/ylim or imshow extent=) and the boundary overlay, which the linked chapters don't cover deeply — teach those in one line at the capstone. Before the first cell, surface content/jupyter_survival_card.md and cover the notebook gotchas real students hit (H3/H4): create the notebook INSIDE the repo (relative paths), pick the `ooi` kernel (base env lacks xarray/netCDF4), Ctrl+S to save, and Kernel>Restart on a stale [*]/hung kernel."
+      survival_card: jupyter_survival_card    # content/jupyter_survival_card.md — keep-it-open (any treatment)
       probes: [p01_meters_per_degree, p02a_jupyter_basics, p02b_python_fundamentals, p02_matplotlib_bathy]
       capstone: "Plot Axial's location + bathymetry from the staged grid, boundary overlaid. (Heads-up: plate_boundary.csv spans the whole NE Pacific — limit your axes to the grid's extent.)"
       gate:
