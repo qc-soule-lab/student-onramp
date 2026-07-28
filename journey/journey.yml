@@ -36,9 +36,9 @@ slice:
       warmup: shell_warmup       # content/shell_warmup.md — guided terminal practice (NOT graded) before the capstone
       data: [axial_bathymetry_gmrt.nc, plate_boundary.csv]
       probes: [p00_unix_navigate, p00c_shell_peek, p00d_read_error, p00b_vi_edit]
-      capstone: "From the JupyterLab terminal: navigate to the data dir using tab-completion, ls -lh the staged grid, peek at plate_boundary.csv's header with head, then open it in vi, read the header, and exit cleanly without saving."
+      capstone: "From the JupyterLab terminal, all by tab-completion, demonstrate the three navigation musts: (1) UP/DOWN — go down into a subdir and back up (e.g. cd ~/student-onramp/assessment/probes, then cd ../.. — pwd after each); (2) the TILDE — reach the data dir from wherever you are via an absolute ~ path (cd ~/student-onramp/data); (3) IDENTIFY THE PATH — before one of those cd's, predict the full path you'll land in, then pwd to check. Then in data/: ls -lh the staged grid, peek at plate_boundary.csv's header with head, open it in vi, read the header, and exit cleanly without saving."
       gate:
-        must: "Capstone done — judged on the demonstration itself, NOT the pre-teaching probe scores: the student navigated to the data dir, listed the staged grid, peeked at a file with head, and opened a file in vi and exited cleanly. (Probe scores are the pre-teaching baseline; the capstone is the post-teaching check.)"
+        must: "Capstone done — judged on the demonstration itself, NOT the pre-teaching probe scores. The student demonstrated all three navigation musts by tab-completion: (1) UP AND DOWN — descended into a subdir and climbed back up (.., ../..); (2) the TILDE — reached a target from anywhere via ~ (and knows bare cd / cd ~ = home); (3) IDENTIFY THE PATHWAY — predicted a cd's resulting absolute path, then confirmed with pwd (absolute vs relative). Plus: ls -lh the grid, head a file, and opened a file in vi and exited cleanly. A fluent (Proficient) student may demonstrate this quickly and move on; anyone who struggles drops to the full navigation drill (content/shell_warmup.md), repeats until easy, and re-attempts — do NOT advance on a shaky demonstration. (Probe scores are the pre-teaching baseline; the capstone is the post-teaching check.)"
         unlocks: 1
 
     - n: 1
