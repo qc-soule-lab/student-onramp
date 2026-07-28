@@ -22,3 +22,17 @@ Rule of thumb: if you're about to type a long path, **Tab** it (double-**Tab** i
 that means more than one match); if you're about to retype a command, **↑** it. A path that starts
 with `~` or `/` works from **anywhere**; a bare name (`data`, `../content`) is read from **where you
 stand** — `pwd` tells you where that is.
+
+## Handy extras (Part 2 — practiced, not required)
+
+| Need | Command |
+|---|---|
+| Page a big file | `less file` → **Space**/**b** scroll, **`q`** to quit |
+| Count lines | `wc -l file` |
+| Search inside a file | `grep -i word file` · `-n` line numbers · `-c` count |
+| Combine commands (pipe) | `cmd1 \| cmd2` — e.g. `ls data \| wc -l` |
+| Save output to a file | `cmd > file` (overwrite) · `cmd >> file` (append) |
+| Many files at once | `*` = any chars · `?` = one — e.g. `ls data/*.nc` |
+| Copy · move/rename | `cp a b` · `mv a b` (move **or** rename) |
+| Forgot a flag? | `cmd --help` · `man cmd` (**`q`** to quit) |
+

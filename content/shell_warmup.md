@@ -51,6 +51,28 @@ type one more letter. Repeat any rung until it's second nature.
 6. **Read an error on purpose.** `cat nope.csv` → `No such file or directory`. That's the shell
    saying *"not here, from where you are"* — not "gone." Orienting with `pwd`/`ls` is the fix.
 
+## Part 2 — handy extras (practiced, optional; never required to pass)
+Not part of the gate — offer these as the student is ready, or as a later reach-for. They're the
+commands that make real data work faster. Same *try → what you should see*; clean up anything you make.
+
+- **Page a big file — `less`.** `less data/plate_boundary.csv` → scroll with **Space**/**b**, quit
+  with **`q`**. Unlike `cat`, it doesn't dump the whole file — and **`q`** always gets you back out.
+- **Count lines — `wc -l`.** `wc -l data/plate_boundary.csv` → the number of rows (header included).
+- **Search inside a file — `grep`.** `head` the file, pick a word you see, then
+  `grep -i <word> data/plate_boundary.csv` → every line containing it. `grep -n …` adds line numbers;
+  `grep -c …` just counts the matches.
+- **Combine commands — the pipe `|`.** Send one command's output straight into the next:
+  `ls data | wc -l` → how many files are in `data/`. Read `|` as "…and feed that into…".
+- **Save output to a file — `>` and `>>`.** `ls data > files.txt` writes the listing to a file
+  (**overwrites**); `echo done >> files.txt` **appends** a line; `cat files.txt` to see it;
+  `rm files.txt` to clean up. `>` clobbers, `>>` adds.
+- **Many files at once — wildcards `*` `?`.** `ls data/*.nc` → all netCDF files; `ls data/axial_*`
+  → everything starting `axial_`. `*` = any run of characters, `?` = exactly one.
+- **Copy / move / rename — `cp` / `mv`.** `cp data/plate_boundary.csv pb_copy.csv` (copy) →
+  `mv pb_copy.csv pb_renamed.csv` (**`mv` both moves *and* renames**) → `rm pb_renamed.csv` (clean up).
+- **Ask a command for help — `man` / `--help`.** Forgot a flag? `ls --help` prints quick usage;
+  `man ls` opens the full manual (**`q`** to quit). The answer is usually one keystroke away.
+
 When the three navigation drills feel routine, the student is ready for the step-0 capstone — which
 has them *demonstrate* all three (go down and back up, make a `~` jump, and predict a path) plus
 `head` the file and a clean vi exit.
