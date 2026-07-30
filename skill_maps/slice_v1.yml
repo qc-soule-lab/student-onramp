@@ -36,7 +36,9 @@ coding:
     chapter: unix_basics
     # GATING objectives: orient (pwd, ls -lh) · navigate (cd, ~, .., tab-complete) ·
     #   peek at a file without an editor (head/cat) · read & recover from a shell error.
-    # USEFUL (taught, not gating): organize (mkdir/cp/mv) · rm + "no trash bin" · globbing (*).
+    # USEFUL (taught, not gating): organize (mkdir/cp/mv) · rm + "no trash bin" · globbing (* ?) ·
+    #   inspect more (less, wc -l, grep) · combine + redirect (pipe |, > >>) · self-serve (man, --help).
+    #   These are the "Part 2 — handy extras" block of content/shell_warmup.md + the survival card.
     summary: "Survival shell: orient (pwd/ls), navigate (cd/~/..), peek at a file (head/cat), and read+recover from errors like 'No such file or directory' — enough to reach and inspect data."
     probes: [p00_unix_navigate, p00c_shell_peek, p00d_read_error]
   - id: vi_basics

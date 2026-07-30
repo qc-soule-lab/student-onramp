@@ -7,6 +7,7 @@ An agentic, Claude-driven onboarding curriculum for new **qc-soule-lab** student
 **Status:** v1 **integrated vertical slice** built and demo-walkable; skeleton in review (data staging + Sonnet acceptance pending). The slice — *"From the map to the tidal signal"* — is 5 **gated modules** (0 reach the data → 1 locate Axial → 2 why it's there → 3 get the data → 4 see the seafloor tide), each binding a domain question to the coding tool it needs.
 
 ## How a student uses it
+0. **Spawn the Large (16 GB) server** at the JupyterHub login/spawn page before you begin — the data steps hang or crash the kernel on a Small profile. (The onramp double-checks this on start and will tell you to respawn if you're on Small.)
 1. Clone this repo, launch `claude` in it, and say *"Assess me and walk me through it one step at a time."*
 2. Claude runs a short **hybrid, Socratic assessment** — conversational triage + a few hands-on probes (domain *and* coding), graded against answer keys.
 3. Claude writes a personalized, paced **`journey_plan.md`** + **`progress.md`** into *your own clone* — private (gitignored), never pushed.
