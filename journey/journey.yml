@@ -88,7 +88,7 @@ slice:
       chapters: [xarray_intro]
       readings: [lab1]
       data: [axial_tmpsf_2015-01.nc]
-      note: "Frame xarray as 'labeled data' — a grid that knows its axis names (time, sensor); preview dims/coords/data_vars gently before the capstone so it doesn't land cold."
+      note: "Frame xarray as 'labeled data' — a grid that knows its axis names (time, sensor); preview dims/coords/data_vars gently before the capstone so it doesn't land cold. When it's time to select, make the LABEL-based form explicit: xarray selects by coordinate name with keyword args — `ds.sel(sensor=1)` or `ds.sel(time=slice('2015-01-01','2015-01-02'))` — because a student who knows Python dict/positional indexing reaches for `ds['temperature'][...]` and stalls on the `.sel(coord=…)` form (real-student friction, H6). Mention `.isel(...)` for position-based selection as the sibling. Keep the rhythm: let them predict/attempt the call before you reveal it."
       probes: [p04_xarray_inspect]
       capstone: "Open data/axial_tmpsf_2015-01.nc with xarray; report its dims (time, sensor), coords, and the temperature variable — then DO something with it: select one sensor (or slice a one-day time window) and report the resulting shape plus a couple of temperature values."
       gate:
