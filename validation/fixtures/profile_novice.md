@@ -6,6 +6,7 @@ Scripted answers a human tester gives **verbatim** during a Sonnet acceptance ru
 
 | Probe | Answer to give (verbatim) | Expected score / depth | Expected level |
 |---|---|---|---|
+| p00e which tab | "In this one, where I'm talking to you? Isn't that the terminal?" then after R2: "oh — the one with the dollar sign runs it, so `ls data` goes there. If I type it here you'd just read it." | partial / depth 1 | Developing (step 0 still Novice via p00/p00c — lowest wins) |
 | p00 unix | "I'm not sure… type the folder name?" then after R2: "oh — `cd data`, `ls`?" | partial / depth 1–2 | Novice |
 | p00c shell peek | "Um… double-click it? I don't know a terminal command for that." after R1: "something like… 'top'?" after the reveal: "oh — `head plate_boundary.csv`." | wrong / depth 2 (per anchor: command named only in the reveal) | Novice |
 | p00d read error | "Maybe the file got deleted somehow?" then after R2: "oh — I'm just in the wrong folder, so `cd` there first and try again?" | partial / depth 1–2 | Novice–Developing (unix skill still Novice via p00/p00c — lowest wins) |

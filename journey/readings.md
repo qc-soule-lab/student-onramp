@@ -35,6 +35,20 @@ openly-licensed reference here.
 |---|---|---|
 | `vi_ref` | vi survival basics — insert mode (`i`), normal mode (`Esc`), save+quit (`:wq`), quit-no-save (`:q!`) | https://en.wikibooks.org/wiki/Learning_the_vi_Editor/vi_Reference |
 
+## Source: Claude Code documentation (coding · step 0 · skill `two_prompts`)
+
+External, **referenced not vendored** (link-only). The tutor the student talks to is Claude Code
+running inside a JupyterLab terminal tab; this page shows what that session looks like, how it is
+started (`claude`) and how it is left (`/exit`), so the student can tell the Claude tab from a
+plain shell tab.
+
+- **Publisher:** Anthropic. Public product documentation; link-only use.
+- **Accessed:** 2026-09-16.
+
+| key | What | URL |
+|---|---|---|
+| `claude_code_ref` | Claude Code quickstart — the `>` prompt, starting with `claude`, leaving with `/exit` | https://code.claude.com/docs/en/quickstart |
+
 ## Optional enrichment — no-code visual primer (NOT gating, offered mainly to Novice-level students)
 
 Coding stays the core (Constitution VII); these are "see it visually first, then build it in code" pointers — link-only, never copied.

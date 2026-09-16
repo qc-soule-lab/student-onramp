@@ -49,6 +49,19 @@ coding:
     # USEFUL (taught, not gating): movement (hjkl/arrows) · delete (x/dd) · yank+put (yy/p) · search (/).
     summary: "Survival vi: the modal model (normal vs insert), open a file, insert (i), Esc, and leave deliberately (:wq/:q/:q!) — never get trapped."
     probes: [p00b_vi_edit]
+  - id: two_prompts
+    step: 0
+    chapter: unix_basics      # the shell half; Claude Code has no book chapter — sourced as reading `claude_code_ref`
+    reading: claude_code_ref  # Claude Code quickstart (public docs); resolves in journey/readings.md
+    # GATING objectives: tell the two terminal tabs apart by their prompt ($ = shell, > = Claude) ·
+    #   route each thing typed — commands to the shell tab, questions/predictions/reports to Claude ·
+    #   say which tab you are in at any moment · know Claude is a program running in a tab
+    #   (`claude` enters, /exit leaves), the same modal idea as vi.
+    # USEFUL (taught, not gating): open a second terminal tab in JupyterLab (File > New > Terminal) ·
+    #   recognize a mis-route (`command not found` at the shell; an unrun command at Claude) ·
+    #   `pwd` as the which-tab test.
+    summary: "Two tabs, two prompts: tells the shell tab ($, runs commands, answers with output) from the Claude tab (>, reads sentences, answers with words); sends each thing typed to the right one; can say which tab they are in at any moment."
+    probes: [p00e_which_prompt]
   - id: jupyter_basics
     step: 1
     chapter: jupyter_basics

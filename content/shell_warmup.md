@@ -6,11 +6,24 @@ Build terminal *comfort* before the capstone. Walk the student through this in t
 JupyterLab terminal, one line at a time — they type it, see the result, you confirm, then move on.
 This is **practice, not assessment**: nothing is scored, and any rung can be repeated until it's
 easy. Offer the full drill to Novice/Developing students; a **Proficient** student can blitz it in
-under a minute and go straight to the capstone. Either way, the **three navigation drills below are
-the gate** — the capstone has *every* student demonstrate them, so a mentor's later "cd into the
-probes folder, now back up to content" just works.
+under a minute and go straight to the capstone. Either way, the **tab check and the three
+navigation drills below are the gate** — the capstone has *every* student demonstrate them, so a
+mentor's later "cd into the probes folder, now back up to content" just works.
 
 Each task: *what to try → what they should see.*
+
+## Which tab am I in? — do this first
+Two JupyterLab terminal tabs, side by side: this one (running Claude) and a plain shell. If the
+student has only one tab, have them open the shell now: **File → New → Terminal**. Then:
+1. **Point at each tab and name it.** Which is Claude, which is the shell, and what is the tell?
+   → The shell's prompt ends in `$`; Claude's input line starts with `>` inside its frame.
+2. **Type `pwd` in each tab.** → The shell prints a path. Claude answers in words. That contrast is
+   the test they can run any time they are unsure.
+3. **Mis-route on purpose.** Type `hello` at the `$` prompt → `command not found` (the shell tried
+   to run `hello` as a program). That is what a sentence sent to the wrong tab looks like. The
+   reverse, a command typed at `>`, is a message to Claude: nothing runs.
+Everything below is typed in the **shell tab**; every prediction and report comes back **here**.
+If a command shows up in this tab during the drill, do not run it: point at the `$` tab and wait.
 
 ## Orient
 1. **Where am I?** `pwd` → prints the current directory path.
@@ -73,8 +86,9 @@ commands that make real data work faster. Same *try → what you should see*; cl
 - **Ask a command for help — `man` / `--help`.** Forgot a flag? `ls --help` prints quick usage;
   `man ls` opens the full manual (**`q`** to quit). The answer is usually one keystroke away.
 
-When the three navigation drills feel routine, the student is ready for the step-0 capstone — which
-has them *demonstrate* all three (go down and back up, make a `~` jump, and predict a path) plus
-`head` the file and a clean vi exit.
+When the tab check and the three navigation drills feel routine, the student is ready for the
+step-0 capstone — which has them name the two tabs and their tell, *demonstrate* all three
+navigation musts (go down and back up, make a `~` jump, and predict a path), then `head` the file
+and make a clean vi exit, sending every command to the shell tab.
 
 Keep `content/terminal_survival_card.md` open alongside this — the same commands as a cheat sheet.
