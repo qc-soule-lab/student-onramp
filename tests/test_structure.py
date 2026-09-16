@@ -187,3 +187,16 @@ def test_step0_shell_warmup_wired(journey):
     assert step0.get("warmup"), "step 0 must name a shell warm-up (Theme 1: Unix comfort)"
     assert (ROOT / "content" / f"{step0['warmup']}.md").exists(), "shell_warmup content file missing"
     assert (ROOT / "content" / "terminal_survival_card.md").exists(), "terminal survival card missing"
+
+
+# --- Theme 1b: step 0 separates the shell tab from the Claude tab ---------
+
+def test_step0_two_prompts_wired(journey, skill_map):
+    step0 = next(s for s in journey["steps"] if s["n"] == 0)
+    assert "two_prompts" in step0["coding_skills"], "step 0 must teach the shell-vs-Claude distinction"
+    assert "p00e_which_prompt" in step0["probes"], "step 0 must probe the shell-vs-Claude distinction"
+    assert "two_prompts" in {c["id"] for c in skill_map["coding"]}
+    card = (ROOT / "content" / "terminal_survival_card.md").read_text()
+    warmup = (ROOT / "content" / f"{step0['warmup']}.md").read_text()
+    assert "Two tabs, two prompts" in card, "survival card must carry the two-tabs section"
+    assert "Which tab am I in?" in warmup, "shell warm-up must open with the tab check"

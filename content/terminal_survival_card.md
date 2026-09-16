@@ -4,6 +4,28 @@
 
 Keep this open — about a dozen commands carry you through the whole course.
 
+## Two tabs, two prompts
+
+You work in **two JupyterLab terminal tabs**. One is running Claude (you typed `claude` in it);
+the other is a plain shell. They look alike. The line where you type tells them apart:
+
+| Tab | The prompt | Type here | It answers with |
+|---|---|---|---|
+| Shell | ends in `$` (e.g. `jovyan@...:~$`) | commands: `pwd`, `ls`, `cd`, `head`, `vi` | program output, or nothing |
+| Claude | starts with `>` inside the Claude Code frame | questions, predictions, what happened when you ran something | sentences |
+
+- Unsure which tab you are in? Type `pwd`. The shell prints a path; Claude replies in words.
+- A sentence typed at `$` gets `command not found`. A command typed at `>` is a message to Claude:
+  nothing ran, and your directory did not change.
+- Need a shell tab? JupyterLab: **File → New → Terminal**. Leave Claude with `/exit`; the same tab
+  is a plain shell again.
+- Claude is a program running in a tab, the same way vi is. `claude` enters it, `/exit` leaves it;
+  `vi` enters, `:q` leaves.
+- In this course you run every command yourself, in the shell tab. Claude does not type in your
+  terminal. (In step 1 a third place appears: notebook cells, which run Python.)
+
+## The commands
+
 | Need | Command |
 |---|---|
 | Where am I? | `pwd` |

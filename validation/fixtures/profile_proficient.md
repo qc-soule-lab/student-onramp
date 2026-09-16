@@ -10,6 +10,7 @@ student placed Proficient across the board.
 
 | Probe | Answer to give (verbatim) | Expected score / depth | Expected level |
 |---|---|---|---|
+| p00e which tab | "The shell tab, obviously — `$` prompt. You're a program running in the other tab, like vi; `/exit` gets me back to a shell. Typed at you it's text, not a command." | correct / 0 | Proficient |
 | p00 unix | "`cd ~/data`, then `ls -lh` to check it's there and see the size." | correct / 0 | Proficient |
 | p00c shell peek | "`head plate_boundary.csv` — `head -3` if I just want the header." | correct / 0 | Proficient |
 | p00d read error | "Wrong working directory — `pwd` to check, then `cd` over or use the full path." | correct / 0 | Proficient |
